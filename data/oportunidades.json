@@ -1,19 +1,24 @@
 [
   {
     "id": 1,
-    "titulo": "Beca de programación 2026",
+    "titulo": "Beca de Excelencia 2026",
     "categoria": "Educación",
-    "descripcion": "Curso gratuito de desarrollo web dirigido a estudiantes universitarios.",
-    "descripcionCompleta": "Esta convocatoria ofrece acceso gratuito a un programa de formación en desarrollo web dirigido a estudiantes universitarios interesados en fortalecer sus conocimientos de programación.",
+    "descripcion": "Apoyo económico para estudios universitarios en todo el país.",
+    "descripcionCompleta": "Esta beca está dirigida a estudiantes universitarios que buscan apoyo para continuar sus estudios y fortalecer su formación académica.",
     "modalidad": "Virtual",
-    "costo": "Gratuito",
-    "fechaPublicacion": "2026-09-10",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-16",
     "fechaApertura": "2026-09-10",
     "fechaLimite": "2026-09-30",
-    "duracion": "3 meses",
-    "etiqueta": "Gratis",
-    "icono": "mortarboard",
-    "requisitos": ["Ser estudiante universitario","Tener disponibilidad mínima de cinco horas semanales","Contar con conexión a Internet","Completar el formulario de inscripción"],
+    "duracion": "Semestral",
+    "etiqueta": "Educación",
+    "icono": "mortarboard-fill",
+    "requisitos": [
+      "Ser estudiante universitario",
+      "Tener disponibilidad mínima de cinco horas semanales",
+      "Contar con conexión a Internet",
+      "Completar el formulario de inscripción"
+    ],
     "url": "#"
   },
   {
@@ -30,7 +35,11 @@
     "duracion": "8 semanas",
     "etiqueta": "Idiomas",
     "icono": "chat-square-text",
-    "requisitos": ["Ser mayor de 16 años","Contar con acceso a Internet","Realizar prueba de nivel"],
+    "requisitos": [
+      "Ser mayor de 16 años",
+      "Contar con acceso a Internet",
+      "Realizar prueba de nivel"
+    ],
     "url": "#"
   },
   {
@@ -38,84 +47,101 @@
     "titulo": "Prácticas en Talento Joven",
     "categoria": "Empleo",
     "descripcion": "Programa de prácticas para estudiantes universitarios en empresas aliadas.",
-    "descripcionCompleta": "Convocatoria de prácticas profesionales para estudiantes que deseen tener su primera experiencia en un entorno empresarial.",
+    "descripcionCompleta": "Programa de prácticas para estudiantes universitarios que desean adquirir experiencia en empresas aliadas y fortalecer su perfil profesional.",
     "modalidad": "Híbrida",
-    "costo": "Gratuito",
-    "fechaPublicacion": "2026-09-08",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-15",
     "fechaApertura": "2026-09-08",
     "fechaLimite": "2026-09-28",
     "duracion": "6 meses",
-    "etiqueta": "Nuevo",
-    "icono": "briefcase",
-    "requisitos": ["Ser estudiante activo","Disponibilidad de medio tiempo","Hoja de vida actualizada"],
+    "etiqueta": "Empleo",
+    "icono": "briefcase-fill",
+    "requisitos": [
+      "Ser estudiante activo",
+      "Disponibilidad de medio tiempo",
+      "Hoja de vida actualizada"
+    ],
     "url": "#"
   },
   {
     "id": 4,
     "titulo": "Hackathon Universitario",
     "categoria": "Tecnología",
-    "descripcion": "Resuelve retos reales y gana premios trabajando en equipo.",
-    "descripcionCompleta": "Encuentro universitario de innovación y tecnología en el que equipos de estudiantes desarrollarán soluciones a retos reales.",
+    "descripcion": "Resuelve retos reales y gana premios en equipo.",
+    "descripcionCompleta": "Evento de innovación y tecnología para resolver retos reales en equipos multidisciplinarios y presentar soluciones ante mentores.",
     "modalidad": "Presencial",
-    "costo": "Gratuito",
-    "fechaPublicacion": "2026-09-01",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-12",
     "fechaApertura": "2026-09-01",
     "fechaLimite": "2026-09-20",
     "duracion": "2 días",
-    "etiqueta": "Últimos días",
-    "icono": "code-slash",
-    "requisitos": ["Conformar un equipo de 2 a 4 personas","Ser estudiante","Llevar computador portátil"],
+    "etiqueta": "Tecnología",
+    "icono": "laptop",
+    "requisitos": [
+      "Conformar un equipo de 2 a 4 personas",
+      "Ser estudiante",
+      "Llevar computador portátil"
+    ],
     "url": "#"
   },
   {
     "id": 5,
     "titulo": "Taller de Portafolio Digital",
     "categoria": "Eventos",
-    "descripcion": "Aprende a crear un portafolio que destaque y potencie tu perfil profesional.",
-    "descripcionCompleta": "Taller práctico para aprender a organizar proyectos, experiencia y habilidades en un portafolio digital claro y atractivo.",
+    "descripcion": "Aprende a crear un portafolio que destaque.",
+    "descripcionCompleta": "Taller práctico para organizar proyectos, experiencia y habilidades en un portafolio digital claro y atractivo.",
     "modalidad": "Virtual",
-    "costo": "Gratuito",
-    "fechaPublicacion": "2026-09-12",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-11",
     "fechaApertura": "2026-09-12",
     "fechaLimite": "2026-10-02",
     "duracion": "4 horas",
-    "etiqueta": "Nuevo",
-    "icono": "calendar-event",
-    "requisitos": ["Registro previo","Acceso a Internet"],
+    "etiqueta": "Eventos",
+    "icono": "calendar-event-fill",
+    "requisitos": [
+      "Registro previo",
+      "Acceso a Internet"
+    ],
     "url": "#"
   },
   {
     "id": 6,
     "titulo": "Descuento en software educativo",
     "categoria": "Beneficios",
-    "descripcion": "Accede a licencias con descuento para estudiantes de instituciones aliadas.",
+    "descripcion": "Accede a licencias con descuento para estudiantes.",
     "descripcionCompleta": "Beneficio para estudiantes que permite acceder a herramientas de productividad y aprendizaje con precios especiales.",
     "modalidad": "Virtual",
-    "costo": "Descuento",
-    "fechaPublicacion": "2026-09-03",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-14",
     "fechaApertura": "2026-09-03",
     "fechaLimite": "2026-10-30",
     "duracion": "1 año",
-    "etiqueta": "Beneficio",
-    "icono": "percent",
-    "requisitos": ["Correo institucional vigente","Validación de matrícula"],
+    "etiqueta": "Beneficios",
+    "icono": "star-fill",
+    "requisitos": [
+      "Correo institucional vigente",
+      "Validación de matrícula"
+    ],
     "url": "#"
   },
   {
     "id": 7,
-    "titulo": "Curso gratuito de Excel avanzado",
+    "titulo": "Curso de Excel avanzado",
     "categoria": "Educación",
-    "descripcion": "Aprende herramientas avanzadas de Excel mediante un programa virtual gratuito.",
-    "descripcionCompleta": "Curso orientado a fortalecer el manejo de fórmulas, tablas dinámicas, gráficos y herramientas de análisis de datos.",
+    "descripcion": "Aprende herramientas avanzadas de Excel para tu vida profesional.",
+    "descripcionCompleta": "Curso práctico de Excel enfocado en fórmulas, tablas dinámicas, gráficos y herramientas de análisis para fortalecer el perfil profesional.",
     "modalidad": "Virtual",
-    "costo": "Gratuito",
-    "fechaPublicacion": "2026-09-07",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-17",
     "fechaApertura": "2026-09-07",
     "fechaLimite": "2026-09-22",
     "duracion": "5 semanas",
-    "etiqueta": "Gratis",
-    "icono": "file-earmark-spreadsheet",
-    "requisitos": ["Conocimientos básicos de Excel","Acceso a computador"],
+    "etiqueta": "Educación",
+    "icono": "file-earmark-spreadsheet-fill",
+    "requisitos": [
+      "Conocimientos básicos de Excel",
+      "Acceso a computador"
+    ],
     "url": "#"
   },
   {
@@ -132,7 +158,11 @@
     "duracion": "6 meses",
     "etiqueta": "Nuevo",
     "icono": "briefcase",
-    "requisitos": ["Ser estudiante de últimos semestres","Disponibilidad de tiempo","Hoja de vida actualizada"],
+    "requisitos": [
+      "Ser estudiante de últimos semestres",
+      "Disponibilidad de tiempo",
+      "Hoja de vida actualizada"
+    ],
     "url": "#"
   },
   {
@@ -140,16 +170,21 @@
     "titulo": "Bootcamp de Desarrollo Web",
     "categoria": "Tecnología",
     "descripcion": "Aprende HTML, CSS y JavaScript en un programa intensivo y 100% virtual.",
-    "descripcionCompleta": "Bootcamp introductorio para construir proyectos web utilizando HTML, CSS y JavaScript.",
+    "descripcionCompleta": "Este bootcamp está dirigido a estudiantes y jóvenes interesados en el desarrollo web. Durante el programa aprenderás desde los fundamentos hasta la creación de proyectos reales, con acompañamiento de mentores.",
     "modalidad": "Virtual",
-    "costo": "Gratuito",
-    "fechaPublicacion": "2026-09-06",
-    "fechaApertura": "2026-09-06",
+    "costo": "Gratis",
+    "fechaPublicacion": "2026-09-13",
+    "fechaApertura": "2026-09-05",
     "fechaLimite": "2026-09-30",
     "duracion": "10 semanas",
-    "etiqueta": "Virtual",
+    "etiqueta": "Tecnología",
     "icono": "laptop",
-    "requisitos": ["Computador con acceso a Internet","Disponibilidad de 6 horas semanales"],
+    "requisitos": [
+      "Ser estudiante o egresado reciente",
+      "Conocimientos básicos de computación",
+      "Disponibilidad de tiempo (10 horas semanales)",
+      "Completar el formulario de inscripción"
+    ],
     "url": "#"
   },
   {
@@ -166,7 +201,11 @@
     "duracion": "2 días",
     "etiqueta": "Últimos días",
     "icono": "calendar-star",
-    "requisitos": ["Registro de equipo","Documento de identidad","Ser estudiante"],
+    "requisitos": [
+      "Registro de equipo",
+      "Documento de identidad",
+      "Ser estudiante"
+    ],
     "url": "#"
   },
   {
@@ -183,7 +222,11 @@
     "duracion": "1 semestre",
     "etiqueta": "Nuevo",
     "icono": "mortarboard",
-    "requisitos": ["Promedio académico mínimo de 4.0","Carta de motivación","Certificado de idioma"],
+    "requisitos": [
+      "Promedio académico mínimo de 4.0",
+      "Carta de motivación",
+      "Certificado de idioma"
+    ],
     "url": "#"
   },
   {
@@ -200,7 +243,10 @@
     "duracion": "2 meses",
     "etiqueta": "Virtual",
     "icono": "people",
-    "requisitos": ["Registro en la plataforma","Definir área de interés"],
+    "requisitos": [
+      "Registro en la plataforma",
+      "Definir área de interés"
+    ],
     "url": "#"
   }
 ]
