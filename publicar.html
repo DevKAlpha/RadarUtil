@@ -1,1 +1,152 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="css/styles.css"><title>Radar Útil | Publicar</title></head><body><header class="site-header"><div class="container navbar"><a href="index.html"><img class="logo" src="assets/logo.svg" alt="Radar Útil"></a><nav class="main-nav" aria-label="Navegación principal"><a data-nav="inicio" href="index.html">Inicio</a><a data-nav="explorar" href="explorar.html">Explorar</a><a data-nav="favoritos" href="favoritos.html">Favoritos <span data-fav-count class="badge-count" style="display:none"></span></a><a data-nav="publicar" class="active" href="publicar.html">Publicar</a><a data-nav="contacto" href="contacto.html">Contacto</a></nav><button class="login-btn js-login"><i class="bi bi-person"></i> Iniciar sesión</button><button class="mobile-toggle" aria-label="Abrir menú"><i class="bi bi-list"></i></button></div></header><main><section class="section"><div class="container form-wrap"><div class="contact-intro"><h1>Publicar oportunidad</h1><p>Comparte una beca, empleo, curso, evento o beneficio que pueda ser útil para otros estudiantes.</p></div><div class="form-card"><form id="publish-form" novalidate><div class="form-group"><label>Título de la oportunidad</label><input class="form-control" name="titulo" required placeholder="Ej. Convocatoria de prácticas 2026"><div class="error-text">Campo obligatorio.</div></div><div class="form-row"><div class="form-group"><label>Categoría</label><select class="form-control" name="categoria" required><option value="">Selecciona</option><option>Educación</option><option>Empleo</option><option>Tecnología</option><option>Eventos</option><option>Beneficios</option></select><div class="error-text">Selecciona una categoría.</div></div><div class="form-group"><label>Modalidad</label><select class="form-control" name="modalidad" required><option value="">Selecciona</option><option>Virtual</option><option>Presencial</option><option>Híbrida</option></select><div class="error-text">Selecciona una modalidad.</div></div></div><div class="form-group"><label>Descripción</label><textarea class="form-control" name="descripcion" required placeholder="Describe la oportunidad..."></textarea><div class="error-text">Campo obligatorio.</div></div><div class="form-row"><div class="form-group"><label>Fecha límite</label><input class="form-control" type="date" name="fechaLimite" required><div class="error-text">Selecciona una fecha.</div></div><div class="form-group"><label>Costo</label><input class="form-control" name="costo" placeholder="Ej. Gratuito"></div></div><div class="form-group"><label>Enlace de la convocatoria</label><input class="form-control" type="url" name="url" placeholder="https://..."></div><div class="form-group"><label>Imagen (opcional)</label><input class="form-control" type="file" name="imagen" accept="image/*"></div><div class="form-group"><label>Requisitos (uno por línea)</label><textarea class="form-control" name="requisitos" placeholder="Ser estudiante universitario&#10;Contar con conexión a Internet"></textarea></div><button class="btn btn-primary btn-block" type="submit"><i class="bi bi-plus-circle"></i> Publicar oportunidad</button></form></div><div class="publish-list"><h2 class="section-title" style="font-size:26px">Tus publicaciones</h2><div id="published-list"></div></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="logo" src="assets/logo.svg" alt="Radar Útil"><p>Más oportunidades. Más estudiantes.</p></div><div><h4>Enlaces rápidos</h4><div class="footer-links"><a href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos</a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></div></div><div><h4>Contacto</h4><div class="footer-contact"><i class="bi bi-envelope"></i> contacto@radarutil.com</div></div></div><div class="footer-bottom"><span>© 2026 Radar Útil. Todos los derechos reservados.</span><span>Hecho por y para estudiantes.</span></div></div></footer><div class="toast"></div><script src="data/oportunidades.js"></script><script src="js/common.js"></script><script src="js/publicar.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Radar Útil | Publicar</title>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand-link" href="index.html" aria-label="Radar Útil, inicio">
+      <img class="logo" src="assets/logo.svg" alt="Radar Útil">
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos <span data-fav-count class="badge-count" style="display:none"></span></a>
+      <a class="active" href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="login-btn js-login"><i class="bi bi-person"></i><span>Iniciar sesión</span></button>
+    <button class="mobile-toggle" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+  </div>
+</header>
+<main>
+<section class="page-section publish-page">
+  <div class="container publish-container">
+    <div class="publish-heading">
+      <h1>Publica una nueva oportunidad</h1>
+      <p>Comparte con la comunidad becas, cursos, empleos, eventos u otras oportunidades.</p>
+    </div>
+
+    <div class="form-card publish-card">
+      <form id="publish-form" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Título de la oportunidad</label>
+            <input class="form-control" name="titulo" required placeholder="Ej. Beca de programación">
+            <div class="error-text">Campo obligatorio.</div>
+          </div>
+          <div class="form-group">
+            <label>Modalidad</label>
+            <select class="form-control" name="modalidad" required>
+              <option value="">Selecciona modalidad</option>
+              <option>Virtual</option><option>Presencial</option><option>Híbrida</option>
+            </select>
+            <div class="error-text">Selecciona una modalidad.</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Categoría</label>
+            <select class="form-control" name="categoria" required>
+              <option value="">Selecciona una categoría</option>
+              <option>Educación</option><option>Empleo</option><option>Tecnología</option><option>Eventos</option><option>Beneficios</option>
+            </select>
+            <div class="error-text">Selecciona una categoría.</div>
+          </div>
+          <div class="form-group">
+            <label>Fecha límite</label>
+            <input class="form-control" type="date" name="fechaLimite" required>
+            <div class="error-text">Selecciona una fecha.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Descripción</label>
+          <textarea class="form-control" name="descripcion" required placeholder="Describe la oportunidad..."></textarea>
+          <div class="error-text">Campo obligatorio.</div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Enlace de la convocatoria</label>
+            <input class="form-control" type="url" name="url" placeholder="https://">
+          </div>
+          <div class="form-group">
+            <label>Costo</label>
+            <input class="form-control" name="costo" placeholder="Ej. Gratuito">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Imagen (opcional)</label>
+          <input class="form-control file-input" type="file" name="imagen" accept="image/*">
+        </div>
+
+        <div class="form-group">
+          <label>Requisitos (uno por línea)</label>
+          <textarea class="form-control compact-textarea" name="requisitos" placeholder="Ser estudiante universitario&#10;Contar con conexión a Internet"></textarea>
+        </div>
+        <button class="btn btn-primary btn-lg publish-submit" type="submit"><i class="bi bi-send-fill"></i> Publicar oportunidad</button>
+      </form>
+    </div>
+
+    <section class="publish-list">
+      <h2 class="section-title">Tus publicaciones</h2>
+      <div id="published-list"></div>
+    </section>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img class="logo" src="assets/logo.svg" alt="Radar Útil">
+        <p>Oportunidades de hoy para un mejor mañana.</p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="explorar.html">Explorar</a>
+          <a href="favoritos.html">Favoritos</a>
+          <a href="publicar.html">Publicar</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <div class="footer-contact">
+          <span><i class="bi bi-envelope"></i> hola@radarutil.com</span>
+          <span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Radar Útil. Todos los derechos reservados.</span>
+      <span>Hecho por y para estudiantes.</span>
+    </div>
+  </div>
+</footer>
+<div class="toast"></div>
+<script src="data/oportunidades.js"></script>
+<script src="js/common.js"></script>
+<script src="js/publicar.js"></script>
+</body>
+</html>
