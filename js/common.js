@@ -5,7 +5,7 @@ const RadarUtil=(()=>{
   const categoryClass=c=>norm(c);
   const imageForOpportunity=op=>{
     if(op.imagen)return op.imagen;
-    const map={'1':'assets/card-education.svg','2':'assets/card-tech.svg','3':'assets/card-job.svg','4':'assets/card-tech.svg','5':'assets/card-event.svg','6':'assets/card-benefit.svg','7':'assets/card-excel.svg','8':'assets/card-job.svg','9':'assets/card-tech.svg','10':'assets/card-event.svg','11':'assets/card-education.svg','12':'assets/card-benefit.svg'};
+    const map={'1':'assets/card-education.svg','2':'assets/card-tech.svg','3':'assets/card-job.svg','4':'assets/card-tech.svg','5':'assets/card-event.svg','6':'assets/card-benefit-v2.svg','7':'assets/card-excel.svg','8':'assets/card-job.svg','9':'assets/card-tech.svg','10':'assets/card-event.svg','11':'assets/card-education.svg','12':'assets/card-benefit-v2.svg'};
     return map[String(op.id)]||'assets/card-tech.svg';
   };
   const formatDate=v=>{if(!v)return'Sin fecha';return new Intl.DateTimeFormat('es-CO',{day:'numeric',month:'long',year:'numeric'}).format(new Date(v+'T00:00:00'))};
