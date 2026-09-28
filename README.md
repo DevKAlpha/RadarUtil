@@ -4,16 +4,43 @@ Prototipo funcional de una plataforma web para consultar oportunidades académic
 
 ## Entrega 2 - Front End
 
-Incluye HTML, CSS y JavaScript; renderizado dinámico desde `data/oportunidades.json`; búsqueda y filtros; vista de detalle; favoritos con `localStorage`; formulario de contacto con validaciones; mini CRUD para crear y eliminar oportunidades; y diseño responsive basado en los mockups de Figma.
+El proyecto incluye:
 
-## Ejecutar el proyecto
+- HTML, CSS y JavaScript.
+- Renderizado dinámico desde `data/oportunidades.json`.
+- Búsqueda y filtros por categoría.
+- Vista detallada de oportunidades.
+- Favoritos almacenados con `localStorage`.
+- Formulario de contacto con validaciones.
+- Mini CRUD para crear y eliminar oportunidades.
+- Diseño responsive basado en los mockups de Figma.
 
-Se recomienda usar Visual Studio Code con Live Server. También puede ejecutarse con:
+## Publicación con GitHub Pages
 
-```bash
-python -m http.server 8000
+Radar Útil está preparado para ejecutarse directamente como un sitio estático en GitHub Pages, sin Python, servidor local ni base de datos.
+
+Una vez habilitado GitHub Pages desde la rama `main` y la carpeta raíz `/`, el proyecto estará disponible en:
+
+https://devkalpha.github.io/RadarUtil/
+
+Todos los enlaces, archivos CSS, JavaScript, imágenes y datos utilizan rutas relativas compatibles con GitHub Pages.
+
+## Estructura del proyecto
+
+```text
+RadarUtil/
+├── index.html
+├── explorar.html
+├── detalle.html
+├── favoritos.html
+├── publicar.html
+├── contacto.html
+├── assets/
+├── css/
+├── data/
+└── js/
 ```
 
-Luego abrir `http://localhost:8000`.
+## Almacenamiento
 
-El proyecto también incluye `data/oportunidades.js` como respaldo para que pueda visualizarse al abrir `index.html` directamente desde el explorador de archivos.
+Los favoritos y las oportunidades creadas por el usuario se guardan en el navegador mediante `localStorage`. Por esta razón, no se requiere un backend para esta versión académica del proyecto.
