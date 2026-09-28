@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" role="img" aria-labelledby="title">
+<title>Estudiante explorando oportunidades</title>
+<defs>
+  <linearGradient id="bg" x1="0" x2="1"><stop stop-color="#eaf5ff"/><stop offset="1" stop-color="#eefcf9"/></linearGradient>
+  <linearGradient id="hoodie" x1="0" x2="1"><stop stop-color="#16b5aa"/><stop offset="1" stop-color="#41d2be"/></linearGradient>
+</defs>
+<path d="M74 280C31 198 89 66 222 45c113-18 151 39 250 44 82 5 124 77 89 157-42 96-163 147-286 135C169 371 111 351 74 280Z" fill="url(#bg)"/>
+<g font-family="Inter,Arial,sans-serif" font-size="18" font-weight="700" fill="#082b67">
+  <rect x="45" y="76" rx="18" width="130" height="56" fill="#fff" stroke="#d9e8f8"/><text x="84" y="111">Becas</text>
+  <rect x="28" y="148" rx="18" width="147" height="56" fill="#fff" stroke="#d9e8f8"/><text x="77" y="183">Empleos</text>
+  <rect x="39" y="220" rx="18" width="136" height="56" fill="#fff" stroke="#d9e8f8"/><text x="80" y="255">Eventos</text>
+</g>
+<g transform="translate(250 62)">
+  <ellipse cx="125" cy="314" rx="110" ry="23" fill="#cfe5f7" opacity=".6"/>
+  <path d="M50 288c8-112 33-169 84-174 52-5 83 56 94 174Z" fill="url(#hoodie)"/>
+  <path d="M86 86c-9-43 7-76 50-80 41-4 66 28 58 75-22-22-71-23-108 5Z" fill="#082b67"/>
+  <circle cx="140" cy="78" r="46" fill="#ffd6bd"/>
+  <path d="M103 58c8-38 58-55 91-17l-6-28-39-13-45 18-13 39Z" fill="#082b67"/>
+  <circle cx="125" cy="76" r="4" fill="#082b67"/><circle cx="157" cy="76" r="4" fill="#082b67"/>
+  <path d="M132 96c12 7 23 6 33-3" fill="none" stroke="#d87361" stroke-width="4" stroke-linecap="round"/>
+  <rect x="109" y="154" width="77" height="108" rx="8" fill="#2f80ed" transform="rotate(-10 147 208)"/>
+  <rect x="120" y="164" width="55" height="77" rx="5" fill="#eaf5ff" transform="rotate(-10 147 208)"/>
+  <path d="M79 205c8 32 21 65 54 69" fill="none" stroke="#ffd6bd" stroke-width="18" stroke-linecap="round"/>
+  <path d="M209 202c-7 30-19 58-51 67" fill="none" stroke="#ffd6bd" stroke-width="18" stroke-linecap="round"/>
+</g>
+<g font-family="Inter,Arial,sans-serif" font-weight="800" font-size="19" fill="#1677d2" transform="translate(450 275) rotate(-7)">
+  <text x="0" y="0">Tu futuro</text><text x="0" y="24">también</text><text x="0" y="48">está aquí</text>
+</g>
+</svg>
