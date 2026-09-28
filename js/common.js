@@ -3,7 +3,31 @@ async function loadBaseOpportunities(){try{const r=await fetch('data/oportunidad
 const getUserOpportunities=()=>{try{return JSON.parse(localStorage.getItem(USER_KEY))||[]}catch{return[]}};const saveUserOpportunities=x=>localStorage.setItem(USER_KEY,JSON.stringify(x));async function getAllOpportunities(){return[...getUserOpportunities(),...(await loadBaseOpportunities())]}
 const getFavorites=()=>{try{return JSON.parse(localStorage.getItem(FAV_KEY))||[]}catch{return[]}};const isFavorite=id=>getFavorites().map(String).includes(String(id));function updateFavoriteCount(){document.querySelectorAll('[data-fav-count]').forEach(el=>{const n=getFavorites().length;el.textContent=n;el.style.display=n?'inline-grid':'none'})}function toggleFavorite(id){const a=getFavorites().map(String),k=String(id),i=a.indexOf(k);if(i>=0)a.splice(i,1);else a.push(k);localStorage.setItem(FAV_KEY,JSON.stringify(a));updateFavoriteCount();return i<0}function removeFavorite(id){localStorage.setItem(FAV_KEY,JSON.stringify(getFavorites().map(String).filter(x=>x!==String(id))));updateFavoriteCount()}
 function showToast(m){let t=document.querySelector('.toast');if(!t){t=document.createElement('div');t.className='toast';document.body.appendChild(t)}t.textContent=m;t.classList.add('show');clearTimeout(window.__radarToast);window.__radarToast=setTimeout(()=>t.classList.remove('show'),2600)}
-function renderOpportunityCard(op,showPublished=false){const cc=categoryClass(op.categoria),saved=isFavorite(op.id);return `<article class="opportunity-card" data-id="${op.id}"><div class="card-visual visual-${cc}">${op.etiqueta?`<span class="tag">${op.etiqueta}</span>`:''}<i class="bi bi-${op.icono||iconForCategory(op.categoria)}"></i></div><div class="card-body"><span class="category-pill">${op.categoria}</span><h3 class="card-title">${op.titulo}</h3><p class="card-desc">${op.descripcion}</p><div class="meta-list">${showPublished?`<span><i class="bi bi-calendar3"></i> Publicado: ${formatDate(op.fechaPublicacion)}</span>`:''}<span><i class="bi bi-laptop"></i> Modalidad: ${op.modalidad}</span><span><i class="bi bi-tag"></i> Costo: ${op.costo}</span><span><i class="bi bi-calendar-check"></i> Fecha límite: ${formatDate(op.fechaLimite)}</span></div><div class="card-actions"><a class="btn btn-primary" href="detalle.html?id=${encodeURIComponent(op.id)}">Ver más</a><button class="btn btn-outline js-favorite" data-id="${op.id}"><i class="bi ${saved?'bi-bookmark-fill':'bi-bookmark'}"></i><span>${saved?'Guardado':'Guardar'}</span></button></div></div></article>`}
+function renderOpportunityCard(op,showPublished=false){const cc=categoryClass(op.categoria),saved=isFavorite(op.id);return `
+      <article class="opportunity-card" data-id="${op.id}">
+        <div class="card-visual visual-${cc}">
+          ${op.etiqueta?`<span class="tag">${op.etiqueta}</span>`:''}
+          <span class="card-category">${op.categoria}</span>
+          <i class="bi bi-${op.icono||iconForCategory(op.categoria)}"></i>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">${op.titulo}</h3>
+          <p class="card-desc">${op.descripcion}</p>
+          <div class="meta-list">
+            ${showPublished?`<span><i class="bi bi-calendar3"></i> Publicado: ${formatDate(op.fechaPublicacion)}</span>`:''}
+            <span><i class="bi bi-laptop"></i> Modalidad: ${op.modalidad}</span>
+            <span><i class="bi bi-tag"></i> Costo: ${op.costo}</span>
+            <span><i class="bi bi-clock"></i> Cierre: ${formatDate(op.fechaLimite)}</span>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-primary" href="detalle.html?id=${encodeURIComponent(op.id)}">Ver más</a>
+            <button class="btn btn-outline js-favorite" data-id="${op.id}">
+              <i class="bi ${saved?'bi-bookmark-fill':'bi-bookmark'}"></i>
+              <span>${saved?'Guardado':'Guardar'}</span>
+            </button>
+          </div>
+        </div>
+      </article>`}
 function bindFavoriteButtons(root=document){root.querySelectorAll('.js-favorite').forEach(btn=>btn.addEventListener('click',()=>{const added=toggleFavorite(btn.dataset.id);btn.querySelector('i').className=`bi ${added?'bi-bookmark-fill':'bi-bookmark'}`;const s=btn.querySelector('span');if(s)s.textContent=added?'Guardado':'Guardar';showToast(added?'Oportunidad agregada a favoritos.':'Oportunidad eliminada de favoritos.')}))}
 function ensureFavicon(){if(!document.querySelector('link[rel="icon"]')){const l=document.createElement('link');l.rel='icon';l.type='image/svg+xml';l.href='assets/favicon.svg';document.head.appendChild(l)}}function initNav(){ensureFavicon();const t=document.querySelector('.mobile-toggle'),n=document.querySelector('.main-nav');t?.addEventListener('click',()=>n?.classList.toggle('open'));document.querySelectorAll('.main-nav a').forEach(a=>a.addEventListener('click',()=>n?.classList.remove('open')));document.querySelectorAll('.js-login').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();showToast('El inicio de sesión se incluirá en una siguiente versión.')}));updateFavoriteCount()}
 function createUserOpportunity(d){const items=getUserOpportunities(),id='user-'+Date.now(),op={id,titulo:d.titulo,categoria:d.categoria,descripcion:d.descripcion,descripcionCompleta:d.descripcion,modalidad:d.modalidad,costo:d.costo||'Gratuito',fechaPublicacion:new Date().toISOString().slice(0,10),fechaApertura:new Date().toISOString().slice(0,10),fechaLimite:d.fechaLimite,duracion:d.duracion||'Por definir',etiqueta:'Nueva',icono:iconForCategory(d.categoria),requisitos:(d.requisitos||'').split('\n').map(x=>x.trim()).filter(Boolean),url:d.url||'#',creadaPorUsuario:true};items.unshift(op);saveUserOpportunities(items);return op}function deleteUserOpportunity(id){saveUserOpportunities(getUserOpportunities().filter(x=>String(x.id)!==String(id)));removeFavorite(id)}
