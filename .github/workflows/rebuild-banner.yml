@@ -1,0 +1,30 @@
+name: Rebuild banner HD
+
+on:
+  push:
+    paths:
+      - "tmp/banner.ready"
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Rebuild high resolution banner
+        shell: bash
+        run: |
+          cat tmp/banner.part*.txt | base64 -d > assets/hero-banner-hd.webp
+          test "$(wc -c < assets/hero-banner-hd.webp)" -eq 35476
+
+      - name: Commit banner
+        shell: bash
+        run: |
+          git config user.name "DevKAlpha"
+          git config user.email "estudiayaprendedk@gmail.com"
+          git add assets/hero-banner-hd.webp
+          git commit -m "Mejora calidad del banner principal"
+          git push
