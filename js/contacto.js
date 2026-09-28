@@ -1,1 +1,15 @@
-document.addEventListener('DOMContentLoaded',()=>{const form=document.querySelector('#contact-form'),success=document.querySelector('#contact-success');form.addEventListener('submit',e=>{e.preventDefault();let ok=true;form.querySelectorAll('[required]').forEach(i=>{i.classList.remove('invalid');if(!i.value.trim()){i.classList.add('invalid');ok=false}});const email=form.email;if(email.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){email.classList.add('invalid');ok=false}if(!ok)return;success.classList.add('show')})});
+document.addEventListener('DOMContentLoaded',()=>{
+  const form=document.querySelector('#contact-form');
+  const card=document.querySelector('#contact-form-card');
+  const success=document.querySelector('#contact-success');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    let ok=true;
+    form.querySelectorAll('[required]').forEach(i=>{i.classList.remove('invalid');if(!i.value.trim()){i.classList.add('invalid');ok=false}});
+    const email=form.email;
+    if(email.value&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){email.classList.add('invalid');ok=false}
+    if(!ok){RadarUtil.showToast('Revisa los campos marcados.');return}
+    card.style.display='none';
+    success.classList.add('show');
+  });
+});

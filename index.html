@@ -1,1 +1,129 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="css/styles.css"><title>Radar Útil | Inicio</title></head><body><header class="site-header"><div class="container navbar"><a class="brand-link" href="index.html"><img class="logo" src="assets/logo.svg" alt="Radar Útil"></a><nav class="main-nav"><a class="active" href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos <span data-fav-count class="badge-count" style="display:none"></span></a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></nav><button class="login-btn js-login"><i class="bi bi-person"></i> Iniciar sesión</button><button class="mobile-toggle"><i class="bi bi-list"></i></button></div></header><main><section class="hero"><div class="container hero-grid"><div><h1>Encuentra oportunidades <span>que sí te sirven</span></h1><p class="lead">Becas, cursos, empleos, eventos y oportunidades en un solo lugar para estudiantes y jóvenes.</p><div class="actions"><a class="btn btn-primary btn-lg" href="explorar.html">Explorar oportunidades <i class="bi bi-arrow-right"></i></a><a class="btn btn-outline btn-lg" href="publicar.html">Publicar oportunidad</a></div><form class="search-bar" id="home-search"><i class="bi bi-search"></i><input type="search" placeholder="Buscar becas, cursos o eventos..."><button class="btn btn-teal" type="submit">Buscar</button></form></div><div class="hero-visual"><img src="assets/hero-student.webp" alt="Estudiante explorando oportunidades"></div></div></section><section class="section section-tight"><div class="container"><h2 class="section-title">Explora por categoría</h2><div class="categories"><a class="category-card category-educación" href="explorar.html?categoria=Educación"><i class="bi bi-mortarboard-fill"></i>Educación</a><a class="category-card category-empleo" href="explorar.html?categoria=Empleo"><i class="bi bi-briefcase-fill"></i>Empleo</a><a class="category-card category-tecnología" href="explorar.html?categoria=Tecnología"><i class="bi bi-laptop"></i>Tecnología</a><a class="category-card category-eventos" href="explorar.html?categoria=Eventos"><i class="bi bi-calendar-event-fill"></i>Eventos</a><a class="category-card category-beneficios" href="explorar.html?categoria=Beneficios"><i class="bi bi-star-fill"></i>Beneficios</a></div></div></section><section class="section section-tight"><div class="container"><div class="section-head"><h2 class="section-title">Oportunidades destacadas</h2><a class="link-arrow" href="explorar.html">Ver todas <i class="bi bi-arrow-right"></i></a></div><div class="cards-grid" id="featured-grid"></div></div></section><section class="section section-tight section-last"><div class="container"><h2 class="section-title">¿Por qué usar Radar Útil?</h2><div class="info-grid"><article class="info-card"><i class="bi bi-file-earmark-text-fill"></i><div><strong>Todo en un solo lugar</strong><p>Encuentra becas, cursos, empleos y eventos fácilmente.</p></div></article><article class="info-card"><i class="bi bi-calendar3"></i><div><strong>Mantente al día</strong><p>Conoce nuevas oportunidades y sus fechas importantes.</p></div></article><article class="info-card"><i class="bi bi-heart-fill"></i><div><strong>Guarda tus favoritas</strong><p>Crea tu lista y vuelve a ellas cuando quieras.</p></div></article></div></div></section></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="logo" src="assets/logo.svg" alt="Radar Útil"><p>Oportunidades de hoy para un mejor mañana.</p><div class="socials"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div></div><div><h4>Navegación</h4><div class="footer-links"><a href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos</a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></div></div><div><h4>Contacto</h4><div class="footer-contact"><span><i class="bi bi-envelope"></i> hola@radarutil.com</span><span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span></div></div></div><div class="footer-bottom"><span>© 2026 Radar Útil. Todos los derechos reservados.</span><span>Hecho por y para estudiantes.</span></div></div></footer><div class="toast"></div><script src="data/oportunidades.js"></script><script src="js/common.js"></script><script src="js/home.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Radar Útil | Inicio</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="index.html" aria-label="Radar Útil">
+      <img src="assets/logo.svg" alt="Radar Útil">
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a class="active" href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos <span class="badge-count" data-fav-count style="display:none"></span></a>
+      <a href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="login-btn js-login" type="button"><i class="bi bi-person"></i> Iniciar sesión</button>
+    <button class="mobile-toggle" type="button" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+  </div>
+</header>
+<main>
+<section class="home-hero">
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <h1>Encuentra oportunidades <span>que sí te sirven</span></h1>
+      <p>Becas, cursos, empleos, eventos y oportunidades en un solo lugar para estudiantes y jóvenes.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" href="explorar.html">Explorar oportunidades <i class="bi bi-arrow-right"></i></a>
+        <a class="btn btn-outline btn-large" href="publicar.html">Publicar oportunidad</a>
+      </div>
+      <form class="search-box home-search" id="home-search">
+        <i class="bi bi-search"></i>
+        <input type="search" placeholder="Buscar becas, cursos o eventos...">
+        <button class="btn btn-teal" type="submit">Buscar</button>
+      </form>
+    </div>
+    <div class="hero-banner">
+      <img src="assets/hero-student.webp" alt="Estudiante explorando becas, empleos y eventos">
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <h2 class="section-title">Explora por categoría</h2>
+    <div class="category-grid">
+      <a class="category-tile education" href="explorar.html?categoria=Educación"><i class="bi bi-mortarboard-fill"></i><span>Educación</span></a>
+      <a class="category-tile employment" href="explorar.html?categoria=Empleo"><i class="bi bi-briefcase-fill"></i><span>Empleo</span></a>
+      <a class="category-tile technology" href="explorar.html?categoria=Tecnología"><i class="bi bi-laptop"></i><span>Tecnología</span></a>
+      <a class="category-tile events" href="explorar.html?categoria=Eventos"><i class="bi bi-calendar-event-fill"></i><span>Eventos</span></a>
+      <a class="category-tile benefits" href="explorar.html?categoria=Beneficios"><i class="bi bi-star-fill"></i><span>Beneficios</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <div class="section-heading-row">
+      <h2 class="section-title">Oportunidades destacadas</h2>
+      <a class="section-link" href="explorar.html">Ver todas <i class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="opportunity-grid home-grid" id="featured-grid"></div>
+  </div>
+</section>
+
+<section class="home-section why-section">
+  <div class="container">
+    <h2 class="section-title">¿Por qué usar Radar Útil?</h2>
+    <div class="why-grid">
+      <article class="why-card">
+        <span class="why-icon teal"><i class="bi bi-file-earmark-text-fill"></i></span>
+        <div><strong>Centraliza información útil</strong><p>Encuentra becas, cursos, empleos y eventos en un solo lugar.</p></div>
+      </article>
+      <article class="why-card">
+        <span class="why-icon teal"><i class="bi bi-calendar3"></i></span>
+        <div><strong>Evita perder fechas importantes</strong><p>Mantente al día con los plazos y convocatorias.</p></div>
+      </article>
+      <article class="why-card">
+        <span class="why-icon purple"><i class="bi bi-heart-fill"></i></span>
+        <div><strong>Guarda oportunidades favoritas</strong><p>Crea tu lista y vuelve a ellas cuando quieras.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo.svg" alt="Radar Útil">
+      <p>Oportunidades de hoy<br>para un mejor mañana.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <span><i class="bi bi-envelope"></i> hola@radarutil.com</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2026 Radar Útil. Todos los derechos reservados.</div>
+</footer>
+<div class="toast"></div>
+<script src="data/oportunidades.js"></script>
+<script src="js/common.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

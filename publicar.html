@@ -1,1 +1,151 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="css/styles.css"><title>Radar Útil | Publicar</title></head><body><header class="site-header"><div class="container navbar"><a class="brand-link" href="index.html"><img class="logo" src="assets/logo.svg" alt="Radar Útil"></a><nav class="main-nav"><a class="active" href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos <span data-fav-count class="badge-count" style="display:none"></span></a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></nav><button class="login-btn js-login"><i class="bi bi-person"></i> Iniciar sesión</button><button class="mobile-toggle"><i class="bi bi-list"></i></button></div></header><main><section class="page-section"><div class="container publish-container"><h1 class="simple-title">Publica una nueva oportunidad</h1><p class="page-subtitle">Comparte con la comunidad becas, cursos, empleos, eventos u otras oportunidades.</p><div class="form-card publish-form-card"><form id="publish-form" novalidate><div class="publish-grid"><div class="form-group"><label>Título de la oportunidad</label><input class="form-control" name="titulo" required placeholder="Ej. Beca de programación"><div class="error-text">Campo obligatorio.</div></div><div class="form-group"><label>Modalidad</label><select class="form-control" name="modalidad" required><option value="">Selecciona modalidad</option><option>Virtual</option><option>Presencial</option><option>Híbrida</option></select><div class="error-text">Selecciona una modalidad.</div></div><div class="form-group"><label>Fecha límite</label><input class="form-control" type="date" name="fechaLimite" required><div class="error-text">Selecciona una fecha.</div></div><div class="form-group"><label>Categoría</label><select class="form-control" name="categoria" required><option value="">Selecciona una categoría</option><option>Educación</option><option>Empleo</option><option>Tecnología</option><option>Eventos</option><option>Beneficios</option></select><div class="error-text">Selecciona una categoría.</div></div><div class="form-group publish-link"><label>Enlace de la convocatoria</label><input class="form-control" type="url" name="url" placeholder="https://"></div><div class="form-group publish-description"><label>Descripción</label><textarea class="form-control" name="descripcion" required placeholder="Describe la oportunidad..."></textarea><div class="error-text">Campo obligatorio.</div></div><div class="form-group publish-image"><label>Imagen (opcional)</label><input class="form-control" type="file" name="imagen" accept="image/*"></div><button class="btn btn-primary publish-submit" type="submit"><i class="bi bi-send-fill"></i> Publicar oportunidad</button></div></form></div><section class="json-info"><div class="json-code"><pre>{ "id": 1, "titulo": "Beca de programación para estudiantes universitarios", "categoria": "Educación", "modalidad": "Virtual", "costo": "Gratis", "fechaLimite": "30/09/2026" }</pre></div><div class="json-copy"><strong>Este archivo se encuentra en:</strong><p><i class="bi bi-folder2-open"></i> /data/oportunidades.json</p><ul><li>La información se carga de forma dinámica en las páginas.</li><li>Permite mostrar, buscar y filtrar oportunidades.</li><li>Se pueden agregar nuevas oportunidades usando localStorage.</li></ul></div></section><section class="publish-list"><div id="published-list"></div></section></div></section></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="logo" src="assets/logo.svg" alt="Radar Útil"><p>Oportunidades de hoy para un mejor mañana.</p><div class="socials"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div></div><div><h4>Navegación</h4><div class="footer-links"><a href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos</a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></div></div><div><h4>Contacto</h4><div class="footer-contact"><span><i class="bi bi-envelope"></i> hola@radarutil.com</span><span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span></div></div></div><div class="footer-bottom"><span>© 2026 Radar Útil. Todos los derechos reservados.</span><span>Hecho por y para estudiantes.</span></div></div></footer><div class="toast"></div><script src="data/oportunidades.js"></script><script src="js/common.js"></script><script src="js/publicar.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Radar Útil | Publicar</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="index.html" aria-label="Radar Útil">
+      <img src="assets/logo.svg" alt="Radar Útil">
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos <span class="badge-count" data-fav-count style="display:none"></span></a>
+      <a class="active" href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="login-btn js-login" type="button"><i class="bi bi-person"></i> Iniciar sesión</button>
+    <button class="mobile-toggle" type="button" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+  </div>
+</header>
+<main>
+<section class="page-shell publish-page">
+  <div class="container publish-container">
+    <div class="page-intro compact">
+      <h1>Publica una nueva oportunidad</h1>
+      <p>Comparte con la comunidad becas, cursos, empleos, eventos u otras oportunidades.</p>
+    </div>
+
+    <div class="publish-card">
+      <form id="publish-form" novalidate>
+        <div class="publish-grid">
+          <div class="form-group wide">
+            <label>Título de la oportunidad</label>
+            <input class="form-control" name="titulo" required placeholder="Ej. Beca de programación">
+            <div class="error-text">Campo obligatorio.</div>
+          </div>
+          <div class="form-group">
+            <label>Modalidad</label>
+            <select class="form-control" name="modalidad" required>
+              <option value="">Selecciona modalidad</option>
+              <option>Virtual</option>
+              <option>Presencial</option>
+              <option>Híbrida</option>
+            </select>
+            <div class="error-text">Selecciona una modalidad.</div>
+          </div>
+          <div class="form-group">
+            <label>Fecha límite</label>
+            <input class="form-control" type="date" name="fechaLimite" required>
+            <div class="error-text">Selecciona una fecha.</div>
+          </div>
+          <div class="form-group">
+            <label>Categoría</label>
+            <select class="form-control" name="categoria" required>
+              <option value="">Selecciona una categoría</option>
+              <option>Educación</option>
+              <option>Empleo</option>
+              <option>Tecnología</option>
+              <option>Eventos</option>
+              <option>Beneficios</option>
+            </select>
+            <div class="error-text">Selecciona una categoría.</div>
+          </div>
+          <div class="form-group wide">
+            <label>Enlace de la convocatoria</label>
+            <input class="form-control" type="url" name="url" placeholder="https://">
+          </div>
+          <div class="form-group wide">
+            <label>Descripción</label>
+            <textarea class="form-control" name="descripcion" required placeholder="Describe la oportunidad..."></textarea>
+            <div class="error-text">Campo obligatorio.</div>
+          </div>
+          <div class="form-group wide">
+            <label>Imagen (opcional)</label>
+            <input class="form-control file-control" type="file" name="imagen" accept="image/*">
+          </div>
+        </div>
+        <div class="publish-actions">
+          <button class="btn btn-primary btn-large" type="submit"><i class="bi bi-send-fill"></i> Publicar oportunidad</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="json-note">
+      <div class="json-code"><pre>{
+  "id": 1,
+  "titulo": "Beca de programación para estudiantes universitarios",
+  "categoria": "Educación",
+  "modalidad": "Virtual",
+  "costo": "Gratis",
+  "fechaLimite": "30/09/2026"
+}</pre></div>
+      <div class="json-copy">
+        <strong>Este archivo se encuentra en:</strong>
+        <p><i class="bi bi-folder2-open"></i> /data/oportunidades.json</p>
+        <ul>
+          <li>La información se carga de forma dinámica.</li>
+          <li>Permite mostrar, buscar y filtrar oportunidades.</li>
+          <li>Las nuevas publicaciones se guardan en localStorage.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="published-list" id="published-list"></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo.svg" alt="Radar Útil">
+      <p>Oportunidades de hoy<br>para un mejor mañana.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <span><i class="bi bi-envelope"></i> hola@radarutil.com</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2026 Radar Útil. Todos los derechos reservados.</div>
+</footer>
+<div class="toast"></div>
+<script src="data/oportunidades.js"></script>
+<script src="js/common.js"></script>
+<script src="js/publicar.js"></script>
+</body>
+</html>

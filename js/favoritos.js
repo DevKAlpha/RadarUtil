@@ -1,1 +1,16 @@
-document.addEventListener('DOMContentLoaded',async()=>{const c=document.querySelector('#favorites-list'),all=await RadarUtil.getAllOpportunities();function draw(){const ids=RadarUtil.getFavorites().map(String),items=all.filter(op=>ids.includes(String(op.id)));if(!items.length){c.innerHTML=`<div class="empty-state"><div class="empty-icon"><i class="bi bi-folder-heart"></i></div><h3>Todavía no tienes oportunidades guardadas.<br>Explora Radar Útil y guarda las que más te interesen.</h3><a class="btn btn-primary" href="explorar.html">Explorar oportunidades</a></div>`;return}c.innerHTML=items.map(op=>`<article class="favorite-item"><div class="favorite-thumb"><img src="${RadarUtil.imageForOpportunity(op)}"></div><div class="favorite-content"><span class="category-pill">${op.categoria}</span><h3>${op.titulo}</h3><div class="meta-list"><span><i class="bi bi-display"></i>${op.modalidad}</span><span><i class="bi bi-clock"></i>${RadarUtil.formatDate(op.fechaLimite)}</span></div><div class="actions"><a class="btn btn-primary" href="detalle.html?id=${encodeURIComponent(op.id)}">Ver oportunidad</a><button class="btn btn-danger js-remove" data-id="${op.id}"><i class="bi bi-trash"></i> Eliminar</button></div></div></article>`).join('');c.querySelectorAll('.js-remove').forEach(b=>b.addEventListener('click',()=>{RadarUtil.removeFavorite(b.dataset.id);draw()}))}draw()});
+document.addEventListener('DOMContentLoaded',async()=>{
+  const c=document.querySelector('#favorites-list');
+  const all=await RadarUtil.getAllOpportunities();
+  function draw(){
+    const ids=RadarUtil.getFavorites().map(String);
+    const items=all.filter(op=>ids.includes(String(op.id)));
+    if(!items.length){
+      c.innerHTML='<div class="empty-state"><div class="empty-illustration"><i class="bi bi-folder-heart"></i></div><h3>Todavía no tienes oportunidades guardadas.<br>Explora Radar Útil y guarda las que más te interesen.</h3><a class="btn btn-primary btn-large" href="explorar.html"><i class="bi bi-compass"></i> Explorar oportunidades</a></div>';
+      return;
+    }
+    c.className='favorite-list';
+    c.innerHTML=items.map(op=>'<article class="favorite-item"><div class="favorite-thumb"><img src="'+RadarUtil.imageForOpportunity(op)+'" alt=""></div><div class="favorite-content"><span class="category-pill">'+op.categoria+'</span><h3>'+op.titulo+'</h3><p>'+op.descripcion+'</p><div class="actions"><a class="btn btn-primary" href="detalle.html?id='+encodeURIComponent(op.id)+'">Ver oportunidad <i class="bi bi-box-arrow-up-right"></i></a><button class="btn btn-danger js-remove" data-id="'+op.id+'"><i class="bi bi-trash"></i> Eliminar de favoritos</button></div></div></article>').join('');
+    c.querySelectorAll('.js-remove').forEach(b=>b.addEventListener('click',()=>{RadarUtil.removeFavorite(b.dataset.id);draw();RadarUtil.showToast('Oportunidad eliminada de favoritos.')}));
+  }
+  draw();
+});

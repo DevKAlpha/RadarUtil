@@ -1,1 +1,141 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="css/styles.css"><title>Radar Útil | Detalle</title></head><body><header class="site-header"><div class="container navbar"><a class="brand-link" href="index.html"><img class="logo" src="assets/logo.svg" alt="Radar Útil"></a><nav class="main-nav"><a class="active" href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos <span data-fav-count class="badge-count" style="display:none"></span></a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></nav><button class="login-btn js-login"><i class="bi bi-person"></i> Iniciar sesión</button><button class="mobile-toggle"><i class="bi bi-list"></i></button></div></header><main><section class="page-section"><div class="container"><a class="back-link" href="explorar.html"><i class="bi bi-arrow-left"></i> Volver a explorar</a><div class="detail-top"><div class="detail-image-wrap"><img id="detail-image" alt=""></div><div><span class="category-pill" id="detail-pill"></span><h1 class="detail-title" id="detail-title">Oportunidad</h1><p class="detail-summary" id="sidebar-desc"></p><div class="detail-stat-grid"><div class="stat-box"><i class="bi bi-display"></i><span><strong>Modalidad</strong><small id="detail-modality"></small></span></div><div class="stat-box"><i class="bi bi-cash-coin"></i><span><strong>Costo</strong><small id="detail-cost"></small></span></div><div class="stat-box"><i class="bi bi-calendar3"></i><span><strong>Fecha de apertura</strong><small id="detail-open"></small></span></div><div class="stat-box"><i class="bi bi-calendar-check"></i><span><strong>Fecha límite</strong><small id="detail-deadline"></small></span></div></div><div class="actions detail-actions"><a class="btn btn-primary btn-lg apply-btn" href="#">Ir a la convocatoria</a><button class="btn btn-outline btn-lg detail-favorite"></button></div></div></div><div class="detail-lower"><article><h2>Descripción</h2><p id="detail-description"></p></article><article class="requirements-box"><h2>Requisitos</h2><ul class="requirements" id="requirements"></ul></article></div><span id="detail-category" hidden></span><span id="detail-duration" hidden></span></div></section></main><footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><img class="logo" src="assets/logo.svg" alt="Radar Útil"><p>Oportunidades de hoy para un mejor mañana.</p><div class="socials"><a href="#"><i class="bi bi-instagram"></i></a><a href="#"><i class="bi bi-linkedin"></i></a><a href="#"><i class="bi bi-twitter-x"></i></a><a href="#"><i class="bi bi-youtube"></i></a></div></div><div><h4>Navegación</h4><div class="footer-links"><a href="index.html">Inicio</a><a href="explorar.html">Explorar</a><a href="favoritos.html">Favoritos</a><a href="publicar.html">Publicar</a><a href="contacto.html">Contacto</a></div></div><div><h4>Contacto</h4><div class="footer-contact"><span><i class="bi bi-envelope"></i> hola@radarutil.com</span><span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span></div></div></div><div class="footer-bottom"><span>© 2026 Radar Útil. Todos los derechos reservados.</span><span>Hecho por y para estudiantes.</span></div></div></footer><div class="toast"></div><script src="data/oportunidades.js"></script><script src="js/common.js"></script><script src="js/detalle.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Radar Útil | Detalle</title>
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" href="index.html" aria-label="Radar Útil">
+      <img src="assets/logo.svg" alt="Radar Útil">
+    </a>
+    <nav class="main-nav" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a class="active" href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos <span class="badge-count" data-fav-count style="display:none"></span></a>
+      <a href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <button class="login-btn js-login" type="button"><i class="bi bi-person"></i> Iniciar sesión</button>
+    <button class="mobile-toggle" type="button" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+  </div>
+</header>
+<main>
+<section class="detail-page">
+  <div class="container detail-layout">
+    <div class="detail-main">
+      <div class="breadcrumb"><a href="explorar.html">Explorar</a><span>/</span><span id="detail-category">Oportunidad</span></div>
+      <h1 id="detail-title">Oportunidad</h1>
+      <span class="detail-category" id="detail-pill"></span>
+
+      <div class="detail-hero">
+        <img id="detail-image" src="assets/detail-programming.svg" alt="">
+      </div>
+
+      <article class="detail-panel">
+        <div class="detail-panel-icon blue"><i class="bi bi-file-earmark-text-fill"></i></div>
+        <div>
+          <h2>Descripción</h2>
+          <p id="detail-description"></p>
+        </div>
+      </article>
+
+      <article class="detail-panel">
+        <div class="detail-panel-icon blue"><i class="bi bi-info-circle-fill"></i></div>
+        <div class="detail-panel-body">
+          <h2>Información de la oportunidad</h2>
+          <div class="detail-info-list">
+            <div><i class="bi bi-laptop"></i><strong>Modalidad:</strong><span id="detail-modality"></span></div>
+            <div><i class="bi bi-tag"></i><strong>Costo:</strong><span id="detail-cost"></span></div>
+            <div><i class="bi bi-calendar3"></i><strong>Fecha de apertura:</strong><span id="detail-open"></span></div>
+            <div><i class="bi bi-calendar-check"></i><strong>Fecha límite:</strong><span id="detail-deadline"></span></div>
+            <div><i class="bi bi-clock"></i><strong>Duración:</strong><span id="detail-duration"></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="detail-panel">
+        <div class="detail-panel-icon blue"><i class="bi bi-check-square-fill"></i></div>
+        <div class="detail-panel-body">
+          <h2>Requisitos</h2>
+          <ul class="requirements" id="requirements"></ul>
+        </div>
+      </article>
+
+      <div class="detail-bottom-actions">
+        <a class="btn btn-primary btn-large apply-btn" href="#">Ir a la convocatoria <i class="bi bi-box-arrow-up-right"></i></a>
+        <button class="btn btn-outline btn-large detail-favorite"></button>
+      </div>
+    </div>
+
+    <aside class="detail-sidebar">
+      <article class="summary-card">
+        <div class="summary-top">
+          <span class="free-chip">Gratuita</span>
+          <i class="bi bi-mortarboard-fill"></i>
+        </div>
+        <h2 id="sidebar-title"></h2>
+        <p id="sidebar-desc"></p>
+        <a class="btn btn-primary btn-block apply-btn" href="#">Ir a la convocatoria <i class="bi bi-box-arrow-up-right"></i></a>
+        <button class="btn btn-outline btn-block detail-favorite"></button>
+
+        <div class="summary-meta">
+          <div><i class="bi bi-laptop"></i><span><strong>Modalidad</strong><small id="side-modality"></small></span></div>
+          <div><i class="bi bi-tag"></i><span><strong>Costo</strong><small id="side-cost"></small></span></div>
+          <div><i class="bi bi-calendar3"></i><span><strong>Fecha de apertura</strong><small id="side-open"></small></span></div>
+          <div><i class="bi bi-calendar-check"></i><span><strong>Fecha límite</strong><small id="side-deadline"></small></span></div>
+          <div><i class="bi bi-clock"></i><span><strong>Duración</strong><small id="side-duration"></small></span></div>
+        </div>
+      </article>
+
+      <article class="future-card">
+        <i class="bi bi-mortarboard-fill"></i>
+        <h3>Tu futuro también está aquí</h3>
+        <p>En Radar Útil reunimos oportunidades que te acercan a tus metas. Explora, postula y sigue creciendo.</p>
+      </article>
+    </aside>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <img src="assets/logo.svg" alt="Radar Útil">
+      <p>Oportunidades de hoy<br>para un mejor mañana.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-links-col">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="explorar.html">Explorar</a>
+      <a href="favoritos.html">Favoritos</a>
+      <a href="publicar.html">Publicar</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="footer-contact">
+      <h4>Contacto</h4>
+      <span><i class="bi bi-envelope"></i> hola@radarutil.com</span>
+      <span><i class="bi bi-geo-alt-fill"></i> Bogotá, Colombia</span>
+    </div>
+  </div>
+  <div class="container footer-bottom">© 2026 Radar Útil. Todos los derechos reservados.</div>
+</footer>
+<div class="toast"></div>
+<script src="data/oportunidades.js"></script>
+<script src="js/common.js"></script>
+<script src="js/detalle.js"></script>
+</body>
+</html>
