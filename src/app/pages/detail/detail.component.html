@@ -1,0 +1,79 @@
+@if (opportunity(); as opportunity) {
+<section class="detail-page">
+  <div class="container detail-layout">
+    <div class="detail-main">
+      <div class="breadcrumb"><a routerLink="/explorar">Explorar</a><span>/</span><span id="detail-category">{{ opportunity.categoria }}</span></div>
+      <h1 id="detail-title">{{ opportunity.titulo }}</h1>
+      <span class="detail-category" id="detail-pill">{{ opportunity.categoria }}</span>
+
+      <div class="detail-hero">
+        <img id="detail-image" [src]="opportunity.id === 1 ? 'assets/detail-programming.svg' : opportunity.imagen" [alt]="opportunity.titulo">
+      </div>
+
+      <article class="detail-panel">
+        <div class="detail-panel-icon blue"><i aria-hidden="true" class="bi bi-file-earmark-text-fill"></i></div>
+        <div>
+          <h2>Descripción</h2>
+          <p id="detail-description">{{ opportunity.descripcionCompleta || opportunity.descripcion }}</p>
+        </div>
+      </article>
+
+      <article class="detail-panel">
+        <div class="detail-panel-icon blue"><i aria-hidden="true" class="bi bi-info-circle-fill"></i></div>
+        <div class="detail-panel-body">
+          <h2>Información de la oportunidad</h2>
+          <div class="detail-info-list">
+            <div><i aria-hidden="true" class="bi bi-laptop"></i><strong>Modalidad:</strong><span id="detail-modality">{{ opportunity.modalidad }}</span></div>
+            <div><i aria-hidden="true" class="bi bi-tag"></i><strong>Costo:</strong><span id="detail-cost">{{ opportunity.costo }}</span></div>
+            <div><i aria-hidden="true" class="bi bi-calendar3"></i><strong>Fecha de apertura:</strong><span id="detail-open">{{ opportunity.fechaApertura | opportunityDate }}</span></div>
+            <div><i aria-hidden="true" class="bi bi-calendar-check"></i><strong>Fecha límite:</strong><span id="detail-deadline">{{ opportunity.fechaLimite | opportunityDate }}</span></div>
+            <div><i aria-hidden="true" class="bi bi-clock"></i><strong>Duración:</strong><span id="detail-duration">{{ opportunity.duracion }}</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class="detail-panel">
+        <div class="detail-panel-icon blue"><i aria-hidden="true" class="bi bi-check-square-fill"></i></div>
+        <div class="detail-panel-body">
+          <h2>Requisitos</h2>
+          <ul class="requirements" id="requirements">@for (requirement of opportunity.requisitos; track $index) { <li><i aria-hidden="true" class="bi bi-check-circle-fill"></i>{{ requirement }}</li> }</ul>
+        </div>
+      </article>
+
+      <div class="detail-bottom-actions">
+        <a class="btn btn-primary btn-large apply-btn" [href]="opportunity.url" target="_blank" rel="noopener noreferrer" (click)="openCall($event, opportunity)">Ir a la convocatoria <i aria-hidden="true" class="bi bi-box-arrow-up-right"></i></a>
+        <button class="btn btn-outline btn-large detail-favorite" (click)="favorites.toggle(opportunity.id)"><i aria-hidden="true" class="bi" [class.bi-bookmark-fill]="favorites.has(opportunity.id)" [class.bi-bookmark]="!favorites.has(opportunity.id)"></i>{{ favorites.has(opportunity.id) ? 'Guardado en favoritos' : 'Agregar a favoritos' }}</button>
+      </div>
+    </div>
+
+    <aside class="detail-sidebar">
+      <article class="summary-card">
+        <div class="summary-top">
+          <span class="free-chip">{{ opportunity.costo }}</span>
+          <i aria-hidden="true" class="bi bi-mortarboard-fill"></i>
+        </div>
+        <h2 id="sidebar-title">{{ opportunity.titulo }}</h2>
+        <p id="sidebar-desc">{{ opportunity.descripcion }}</p>
+        <a class="btn btn-primary btn-block apply-btn" [href]="opportunity.url" target="_blank" rel="noopener noreferrer" (click)="openCall($event, opportunity)">Ir a la convocatoria <i aria-hidden="true" class="bi bi-box-arrow-up-right"></i></a>
+        <button class="btn btn-outline btn-block detail-favorite" (click)="favorites.toggle(opportunity.id)"><i aria-hidden="true" class="bi" [class.bi-bookmark-fill]="favorites.has(opportunity.id)" [class.bi-bookmark]="!favorites.has(opportunity.id)"></i>{{ favorites.has(opportunity.id) ? 'Guardado en favoritos' : 'Agregar a favoritos' }}</button>
+
+        <div class="summary-meta">
+          <div><i aria-hidden="true" class="bi bi-laptop"></i><span><strong>Modalidad</strong><small id="side-modality">{{ opportunity.modalidad }}</small></span></div>
+          <div><i aria-hidden="true" class="bi bi-tag"></i><span><strong>Costo</strong><small id="side-cost">{{ opportunity.costo }}</small></span></div>
+          <div><i aria-hidden="true" class="bi bi-calendar3"></i><span><strong>Fecha de apertura</strong><small id="side-open">{{ opportunity.fechaApertura | opportunityDate }}</small></span></div>
+          <div><i aria-hidden="true" class="bi bi-calendar-check"></i><span><strong>Fecha límite</strong><small id="side-deadline">{{ opportunity.fechaLimite | opportunityDate }}</small></span></div>
+          <div><i aria-hidden="true" class="bi bi-clock"></i><span><strong>Duración</strong><small id="side-duration">{{ opportunity.duracion }}</small></span></div>
+        </div>
+      </article>
+
+      <article class="future-card">
+        <i aria-hidden="true" class="bi bi-mortarboard-fill"></i>
+        <h3>Tu futuro también está aquí</h3>
+        <p>En Radar Útil reunimos oportunidades que te acercan a tus metas. Explora, postula y sigue creciendo.</p>
+      </article>
+    </aside>
+  </div>
+</section>
+} @else {
+<section class="page-shell"><div class="container"><h1>{{ opportunities.loading() ? 'Cargando oportunidad…' : 'Oportunidad no encontrada' }}</h1><p>{{ opportunities.error() }}</p><a class="btn btn-primary" routerLink="/explorar">Explorar oportunidades</a></div></section>
+}

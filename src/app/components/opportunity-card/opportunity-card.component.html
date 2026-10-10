@@ -1,0 +1,38 @@
+@if (mode() === 'favorite') {
+  <article class="favorite-item">
+    <div class="favorite-thumb"><img [src]="opportunity().imagen" [alt]="opportunity().titulo" loading="lazy"></div>
+    <div class="favorite-content">
+      <span class="category-pill">{{ opportunity().categoria }}</span>
+      <h3>{{ opportunity().titulo }}</h3><p>{{ opportunity().descripcion }}</p>
+      <div class="actions">
+        <a class="btn btn-primary" [routerLink]="['/detalle', opportunity().id]">Ver oportunidad <i aria-hidden="true" class="bi bi-box-arrow-up-right"></i></a>
+        <button class="btn btn-danger" type="button" (click)="favorites.toggle(opportunity().id)"><i aria-hidden="true" class="bi bi-trash"></i> Eliminar de favoritos</button>
+      </div>
+    </div>
+  </article>
+} @else {
+  <article class="opportunity-card">
+    <div class="card-visual"><img class="card-photo" [src]="opportunity().imagen" [alt]="opportunity().titulo" loading="lazy"><span class="card-category">{{ opportunity().categoria }}</span></div>
+    <div class="card-body">
+      <h3 class="card-title">{{ opportunity().titulo }}</h3><p class="card-desc">{{ opportunity().descripcion }}</p>
+      <div class="meta-list">
+        @if (mode() === 'home') {
+          <span><i aria-hidden="true" class="bi bi-laptop"></i>Modalidad: {{ opportunity().modalidad }}</span>
+          <span><i aria-hidden="true" class="bi bi-tag"></i>Costo: {{ opportunity().costo }}</span>
+          <span><i aria-hidden="true" class="bi bi-calendar3"></i>Fecha límite: {{ opportunity().fechaLimite | opportunityDate }}</span>
+        } @else {
+          <span><i aria-hidden="true" class="bi bi-calendar3"></i>Publicado: {{ opportunity().fechaPublicacion | opportunityDate }}</span>
+          <span><i aria-hidden="true" class="bi bi-clock"></i>Cierre: {{ opportunity().fechaLimite | opportunityDate }}</span>
+          <span><i aria-hidden="true" class="bi bi-geo-alt"></i>Modalidad: {{ opportunity().modalidad }}</span>
+        }
+      </div>
+      <div class="card-actions">
+        <a class="btn btn-primary" [routerLink]="['/detalle', opportunity().id]">Ver más</a>
+        <button class="btn btn-outline" type="button" [attr.aria-pressed]="favorites.has(opportunity().id)" (click)="favorites.toggle(opportunity().id)">
+          <i aria-hidden="true" class="bi" [class.bi-bookmark-fill]="favorites.has(opportunity().id)" [class.bi-bookmark]="!favorites.has(opportunity().id)"></i>
+          <span>{{ favorites.has(opportunity().id) ? 'Guardado' : 'Guardar' }}</span>
+        </button>
+      </div>
+    </div>
+  </article>
+}

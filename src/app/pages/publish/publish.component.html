@@ -1,0 +1,90 @@
+<section class="page-shell publish-page">
+  <div class="container publish-container">
+    <div class="page-intro compact">
+      <h1>Publica una nueva oportunidad</h1>
+      <p>Comparte con la comunidad becas, cursos, empleos, eventos u otras oportunidades.</p>
+    </div>
+
+    <div class="publish-card">
+      <form id="publish-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="publish-grid">
+          <div class="form-group wide">
+            <label for="publish-titulo">Título de la oportunidad</label>
+            <input class="form-control" id="publish-titulo" formControlName="titulo" [class.invalid]="invalid('titulo')" [attr.aria-invalid]="invalid('titulo')" required placeholder="Ej. Beca de programación">
+            <div class="error-text">Campo obligatorio.</div>
+          </div>
+          <div class="form-group">
+            <label for="publish-modalidad">Modalidad</label>
+            <select class="form-control" id="publish-modalidad" formControlName="modalidad" [class.invalid]="invalid('modalidad')" [attr.aria-invalid]="invalid('modalidad')" required>
+              <option value="">Selecciona modalidad</option>
+              <option>Virtual</option>
+              <option>Presencial</option>
+              <option>Híbrida</option>
+            </select>
+            <div class="error-text">Selecciona una modalidad.</div>
+          </div>
+          <div class="form-group">
+            <label for="publish-fechaLimite">Fecha límite</label>
+            <input class="form-control" type="date" id="publish-fechaLimite" formControlName="fechaLimite" [class.invalid]="invalid('fechaLimite')" [attr.aria-invalid]="invalid('fechaLimite')" required>
+            <div class="error-text">Selecciona una fecha.</div>
+          </div>
+          <div class="form-group">
+            <label for="publish-categoria">Categoría</label>
+            <select class="form-control" id="publish-categoria" formControlName="categoria" [class.invalid]="invalid('categoria')" [attr.aria-invalid]="invalid('categoria')" required>
+              <option value="">Selecciona una categoría</option>
+              <option>Educación</option>
+              <option>Empleo</option>
+              <option>Tecnología</option>
+              <option>Eventos</option>
+              <option>Beneficios</option>
+            </select>
+            <div class="error-text">Selecciona una categoría.</div>
+          </div>
+          <div class="form-group wide">
+            <label for="publish-url">Enlace de la convocatoria</label>
+            <input class="form-control" type="url" id="publish-url" required formControlName="url" [class.invalid]="invalid('url')" [attr.aria-invalid]="invalid('url')" placeholder="https://"><div class="error-text">Ingresa un enlace válido con http:// o https://.</div>
+          </div>
+          <div class="form-group wide">
+            <label for="publish-descripcion">Descripción</label>
+            <textarea class="form-control" id="publish-descripcion" formControlName="descripcion" [class.invalid]="invalid('descripcion')" [attr.aria-invalid]="invalid('descripcion')" required placeholder="Describe la oportunidad..."></textarea>
+            <div class="error-text">Campo obligatorio.</div>
+          </div>
+          <div class="form-group wide">
+            <label for="publish-imagen">Imagen (opcional)</label>
+            <input class="form-control file-control" type="file" id="publish-imagen" (change)="readImage($event)" accept="image/png,image/jpeg,image/webp,image/gif">
+          </div>
+        </div>
+        @if (imageError()) { <p class="form-error" role="alert">{{ imageError() }}</p> }
+        <div class="publish-actions">
+          <button class="btn btn-primary btn-large" type="submit" [disabled]="readingImage()"><i aria-hidden="true" class="bi bi-send-fill"></i> Publicar oportunidad</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="json-note">
+      <div class="json-code"><pre>&#123;
+  "id": 1,
+  "titulo": "Beca de programación para estudiantes universitarios",
+  "categoria": "Educación",
+  "modalidad": "Virtual",
+  "costo": "Gratis",
+  "fechaLimite": "30/09/2026"
+&#125;</pre></div>
+      <div class="json-copy">
+        <strong>Este archivo se encuentra en:</strong>
+        <p><i aria-hidden="true" class="bi bi-folder2-open"></i> /src/assets/data/oportunidades.json</p>
+        <ul>
+          <li>La información se carga de forma dinámica.</li>
+          <li>Permite mostrar, buscar y filtrar oportunidades.</li>
+          <li>Las nuevas publicaciones se guardan en localStorage.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="published-list" id="published-list">
+    @for (opportunity of opportunities.local(); track opportunity.id) {
+      <div class="published-item"><div><strong>{{ opportunity.titulo }}</strong><br><small>{{ opportunity.categoria }} · {{ opportunity.modalidad }} · Cierra {{ opportunity.fechaLimite | opportunityDate }}</small></div><button class="btn btn-danger" type="button" (click)="opportunities.deleteLocal(opportunity.id)"><i aria-hidden="true" class="bi bi-trash"></i> Eliminar</button></div>
+    }
+    </div>
+  </div>
+</section>

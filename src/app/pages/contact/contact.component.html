@@ -1,0 +1,45 @@
+<section class="contact-page">
+  <div class="container contact-container">
+    <div class="contact-intro">
+      <h1>Contáctanos</h1>
+      <p>¿Tienes alguna pregunta o conoces una oportunidad que deberíamos publicar? Escríbenos.</p>
+      <div class="mail-illustration"><i aria-hidden="true" class="bi bi-envelope-paper-fill"></i></div>
+    </div>
+
+    @if (!sent()) { <div class="contact-card" id="contact-form-card">
+      <form id="contact-form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="form-group">
+          <label for="contact-nombre">Nombre</label>
+          <input class="form-control" id="contact-nombre" formControlName="nombre" [class.invalid]="invalid('nombre')" [attr.aria-invalid]="invalid('nombre')" required placeholder="Tu nombre completo">
+          <div class="error-text">Ingresa tu nombre.</div>
+        </div>
+        <div class="form-group">
+          <label for="contact-email">Correo electrónico</label>
+          <input class="form-control" id="contact-email" formControlName="email" [class.invalid]="invalid('email')" [attr.aria-invalid]="invalid('email')" type="email" required placeholder="tunombre@correo.com">
+          <div class="error-text">Ingresa un correo electrónico válido.</div>
+        </div>
+        <div class="form-group">
+          <label for="contact-asunto">Asunto</label>
+          <input class="form-control" id="contact-asunto" formControlName="asunto" [class.invalid]="invalid('asunto')" [attr.aria-invalid]="invalid('asunto')" required placeholder="¿Sobre qué quieres escribir?">
+          <div class="error-text">Ingresa un asunto.</div>
+        </div>
+        <div class="form-group">
+          <label for="contact-mensaje">Mensaje</label>
+          <textarea class="form-control" id="contact-mensaje" formControlName="mensaje" [class.invalid]="invalid('mensaje')" [attr.aria-invalid]="invalid('mensaje')" required placeholder="Escribe tu mensaje aquí..."></textarea>
+          <div class="error-text">Escribe tu mensaje.</div>
+        </div>
+        <button class="btn btn-primary btn-block btn-large" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+
+    } @else { <div class="contact-success show" id="contact-success">
+      <div class="success-box">
+        <div class="success-icon"><i aria-hidden="true" class="bi bi-check-lg"></i></div>
+        <h2>Tu mensaje fue enviado correctamente.</h2>
+        <p>Gracias por comunicarte con Radar Útil.</p>
+      </div>
+      <a class="btn btn-primary btn-large" routerLink="/">Volver al inicio</a>
+    </div>
+    }
+  </div>
+</section>

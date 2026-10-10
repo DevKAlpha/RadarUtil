@@ -1,0 +1,16 @@
+<header class="site-header">
+  <div class="container nav-shell">
+    <a class="brand" routerLink="/" aria-label="Radar Útil">
+      <img src="assets/logo.svg" alt="Radar Útil">
+    </a>
+    <nav id="main-menu" class="main-nav" [class.open]="menuOpen" aria-label="Navegación principal">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="activeOptions" (click)="menuOpen = false">Inicio</a>
+      <a routerLink="/explorar" [class.active]="router.url.startsWith('/detalle/')" routerLinkActive="active" [routerLinkActiveOptions]="activeOptions" (click)="menuOpen = false">Explorar</a>
+      <a routerLink="/favoritos" routerLinkActive="active" [routerLinkActiveOptions]="activeOptions" (click)="menuOpen = false">Favoritos @if (favorites.ids().length) { <span class="badge-count">{{ favorites.ids().length }}</span> }</a>
+      <a routerLink="/publicar" routerLinkActive="active" [routerLinkActiveOptions]="activeOptions" (click)="menuOpen = false">Publicar</a>
+      <a routerLink="/contacto" routerLinkActive="active" [routerLinkActiveOptions]="activeOptions" (click)="menuOpen = false">Contacto</a>
+    </nav>
+    <button class="login-btn" (click)="notice.show('El inicio de sesión se incluirá en una siguiente versión.')" type="button"><i aria-hidden="true" class="bi bi-person"></i> Iniciar sesión</button>
+    <button class="mobile-toggle" type="button" [attr.aria-label]="menuOpen ? 'Cerrar menú' : 'Abrir menú'" [attr.aria-expanded]="menuOpen" aria-controls="main-menu" (click)="menuOpen = !menuOpen"><i aria-hidden="true" class="bi bi-list"></i></button>
+  </div>
+</header>

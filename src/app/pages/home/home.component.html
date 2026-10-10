@@ -1,0 +1,69 @@
+<section class="home-hero">
+  <div class="container hero-layout">
+    <div class="hero-copy">
+      <h1>Encuentra oportunidades <span>que sí te sirven</span></h1>
+      <p>Becas, cursos, empleos, eventos y oportunidades en un solo lugar para estudiantes y jóvenes.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-large" routerLink="/explorar">Explorar oportunidades <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+        <a class="btn btn-outline btn-large" routerLink="/publicar">Publicar oportunidad</a>
+      </div>
+      <form class="search-box home-search" id="home-search" (ngSubmit)="search()">
+        <i aria-hidden="true" class="bi bi-search"></i>
+        <input type="search" name="query" [(ngModel)]="query" aria-label="Buscar oportunidades" placeholder="Buscar becas, cursos o eventos...">
+        <button class="btn btn-teal" type="submit">Buscar</button>
+      </form>
+    </div>
+    <div class="hero-banner">
+      <img src="assets/hero-banner-hd.webp" width="1080" height="720" decoding="async" fetchpriority="high" alt="Estudiante explorando becas, empleos y eventos">
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <h2 class="section-title">Explora por categoría</h2>
+    <div class="category-grid">
+      <a class="category-tile education" routerLink="/explorar" [queryParams]="{categoria: 'Educación'}"><i aria-hidden="true" class="bi bi-mortarboard-fill"></i><span>Educación</span></a>
+      <a class="category-tile employment" routerLink="/explorar" [queryParams]="{categoria: 'Empleo'}"><i aria-hidden="true" class="bi bi-briefcase-fill"></i><span>Empleo</span></a>
+      <a class="category-tile technology" routerLink="/explorar" [queryParams]="{categoria: 'Tecnología'}"><i aria-hidden="true" class="bi bi-laptop"></i><span>Tecnología</span></a>
+      <a class="category-tile events" routerLink="/explorar" [queryParams]="{categoria: 'Eventos'}"><i aria-hidden="true" class="bi bi-calendar-event-fill"></i><span>Eventos</span></a>
+      <a class="category-tile benefits" routerLink="/explorar" [queryParams]="{categoria: 'Beneficios'}"><i aria-hidden="true" class="bi bi-star-fill"></i><span>Beneficios</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="home-section">
+  <div class="container">
+    <div class="section-heading-row">
+      <h2 class="section-title">Oportunidades destacadas</h2>
+      <a class="section-link" routerLink="/explorar">Ver todas <i aria-hidden="true" class="bi bi-arrow-right"></i></a>
+    </div>
+    <div class="opportunity-grid home-grid" id="featured-grid">
+      @for (opportunity of featured(); track opportunity.id) {
+        <app-opportunity-card [opportunity]="opportunity" mode="home" />
+      }
+    </div>
+    @if (opportunities.loading()) { <p role="status">Cargando oportunidades…</p> }
+    @if (opportunities.error()) { <p role="alert">{{ opportunities.error() }}</p> }
+  </div>
+</section>
+
+<section class="home-section why-section">
+  <div class="container">
+    <h2 class="section-title">¿Por qué usar Radar Útil?</h2>
+    <div class="why-grid">
+      <article class="why-card">
+        <span class="why-icon teal"><i aria-hidden="true" class="bi bi-file-earmark-text-fill"></i></span>
+        <div><strong>Centraliza información útil</strong><p>Encuentra becas, cursos, empleos y eventos en un solo lugar.</p></div>
+      </article>
+      <article class="why-card">
+        <span class="why-icon teal"><i aria-hidden="true" class="bi bi-calendar3"></i></span>
+        <div><strong>Evita perder fechas importantes</strong><p>Mantente al día con los plazos y convocatorias.</p></div>
+      </article>
+      <article class="why-card">
+        <span class="why-icon purple"><i aria-hidden="true" class="bi bi-heart-fill"></i></span>
+        <div><strong>Guarda oportunidades favoritas</strong><p>Crea tu lista y vuelve a ellas cuando quieras.</p></div>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<section class="page-shell favorites-page">
+  <div class="container">
+    <h1 class="simple-title">Mis oportunidades guardadas</h1>
+    <p class="simple-subtitle">Consulta aquí las oportunidades que guardaste para revisarlas después.</p>
+    <div id="favorites-list" [class.favorite-list]="saved().length > 0">
+    @for (opportunity of saved(); track opportunity.id) { <app-opportunity-card [opportunity]="opportunity" mode="favorite" /> }
+    @if (opportunities.loading()) { <p role="status">Cargando oportunidades…</p> }
+    @if (opportunities.error()) { <p role="alert">{{ opportunities.error() }}</p> }
+    @if (!opportunities.loading() && !saved().length) {
+      <div class="empty-state"><div class="empty-illustration"><i aria-hidden="true" class="bi bi-folder-heart"></i></div><h3>Todavía no tienes oportunidades guardadas.<br>Explora Radar Útil y guarda las que más te interesen.</h3><a class="btn btn-primary btn-large" routerLink="/explorar"><i aria-hidden="true" class="bi bi-compass"></i> Explorar oportunidades</a></div>
+    }
+    </div>
+  </div>
+</section>

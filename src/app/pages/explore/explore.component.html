@@ -1,0 +1,38 @@
+<section class="page-shell">
+  <div class="container">
+    <div class="page-intro">
+      <h1>Explora <span>oportunidades</span></h1>
+      <p>Encuentra becas, cursos, empleos y eventos en un solo lugar.</p>
+    </div>
+
+    <form class="search-box explore-search" id="explore-search-form" (ngSubmit)="syncQuery()">
+      <i aria-hidden="true" class="bi bi-search"></i>
+      <input id="explore-search-input" name="query" [(ngModel)]="query" (ngModelChange)="syncQuery()" aria-label="Buscar oportunidades" type="search" placeholder="Buscar oportunidades, palabras clave o instituciones...">
+      <button class="btn btn-teal" type="submit">Buscar</button>
+    </form>
+
+    <div class="filter-row">
+      <button class="filter-chip" type="button" [class.active]="category() === 'Todas'" (click)="selectCategory('Todas')" [attr.aria-pressed]="category() === 'Todas'"><i aria-hidden="true" class="bi bi-grid-fill"></i> Todas</button>
+      <button class="filter-chip education" type="button" [class.active]="category() === 'Educación'" (click)="selectCategory('Educación')" [attr.aria-pressed]="category() === 'Educación'"><i aria-hidden="true" class="bi bi-mortarboard-fill"></i> Educación</button>
+      <button class="filter-chip employment" type="button" [class.active]="category() === 'Empleo'" (click)="selectCategory('Empleo')" [attr.aria-pressed]="category() === 'Empleo'"><i aria-hidden="true" class="bi bi-briefcase-fill"></i> Empleo</button>
+      <button class="filter-chip technology" type="button" [class.active]="category() === 'Tecnología'" (click)="selectCategory('Tecnología')" [attr.aria-pressed]="category() === 'Tecnología'"><i aria-hidden="true" class="bi bi-laptop"></i> Tecnología</button>
+      <button class="filter-chip events" type="button" [class.active]="category() === 'Eventos'" (click)="selectCategory('Eventos')" [attr.aria-pressed]="category() === 'Eventos'"><i aria-hidden="true" class="bi bi-calendar-event-fill"></i> Eventos</button>
+      <button class="filter-chip benefits" type="button" [class.active]="category() === 'Beneficios'" (click)="selectCategory('Beneficios')" [attr.aria-pressed]="category() === 'Beneficios'"><i aria-hidden="true" class="bi bi-star-fill"></i> Beneficios</button>
+    </div>
+
+    <div class="explore-toolbar">
+      <span id="result-count" aria-live="polite">{{ filtered().length }} oportunidades encontradas</span>
+      <select id="sort-select" name="sort" aria-label="Ordenar por fecha" [(ngModel)]="sort">
+        <option value="recientes">Más recientes</option>
+        <option value="antiguas">Más antiguas</option>
+      </select>
+    </div>
+
+    <div class="opportunity-grid explore-grid" id="explore-grid">
+      @for (opportunity of filtered(); track opportunity.id) { <app-opportunity-card [opportunity]="opportunity" /> }
+    </div>
+    @if (opportunities.loading()) { <p role="status">Cargando oportunidades…</p> }
+    @if (opportunities.error()) { <p role="alert">{{ opportunities.error() }}</p> }
+    @if (!opportunities.loading() && !filtered().length) { <p>No encontramos oportunidades con estos filtros.</p> }
+  </div>
+</section>
