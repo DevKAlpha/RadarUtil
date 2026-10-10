@@ -76,7 +76,7 @@ El contacto valida campos obligatorios y correo electrónico. El envío es una s
 
 Sitio: [https://devkalpha.github.io/RadarUtil/](https://devkalpha.github.io/RadarUtil/).
 
-El workflow `.github/workflows/deploy.yml` instala con `npm ci`, compila Angular y publica en Pages con cada push a `main`. La fuente de publicación del repositorio debe ser **GitHub Actions**. No requiere pasos manuales después de cada cambio. Las rutas hash permiten actualizar vistas internas sin errores 404.
+El workflow `.github/workflows/deploy.yml` instala con `npm ci`, compila Angular y publica en Pages con cada push a `main`. La fuente de publicación del repositorio está configurada como **GitHub Actions**. No requiere pasos manuales después de cada cambio. Las rutas hash permiten actualizar vistas internas sin errores 404.
 
 El respaldo local `respaldo-pre-angular-2026-10-10` conserva la versión anterior en Git. El historial existente se mantiene.
 

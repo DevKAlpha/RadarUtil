@@ -99,4 +99,4 @@ La aplicación Angular quedó publicada en `main` y en GitHub Pages el 10 de oct
 
 Las mismas 18 pruebas pasan contra el sitio público, incluidas las rutas internas al actualizar, los favoritos persistentes, los formularios, el mini CRUD y los recursos visuales. Para repetirlas, define `RADAR_BASE_URL=https://devkalpha.github.io/RadarUtil/` antes de ejecutar `npm run test:e2e`.
 
-La fuente anterior de Pages también sigue activando su publicación automática. Falta seleccionar **GitHub Actions** en Settings → Pages → Source para utilizar exclusivamente el workflow Angular. Este ajuste se realiza una sola vez y requiere una sesión del propietario en GitHub.
+La fuente de Pages quedó configurada como **GitHub Actions** en Settings → Pages → Source. Cada push a `main` utiliza exclusivamente el workflow Angular para compilar y publicar el sitio.
