@@ -95,4 +95,8 @@ Verificación local: `npm install` sin errores ni vulnerabilidades y `npm run bu
 
 Las pruebas verifican las seis vistas, navegación activa, buscador, cinco categorías, contador, ordenamiento, detalle por ID, persistencia de favoritos, publicación con imagen, eliminación local, validaciones de contacto, imágenes, favicon y ausencia de desbordamiento horizontal. La navegación normal no presenta errores ni warnings de consola. También se comprueba la recuperación ante almacenamiento corrupto y fallo de carga del JSON.
 
-El despliegue remoto está pendiente de autorización y verificación. La implementación y las pruebas locales están completas.
+La aplicación Angular quedó publicada en `main` y en GitHub Pages el 10 de octubre de 2026. El workflow [Publica Radar Útil](https://github.com/DevKAlpha/RadarUtil/actions/runs/38078516420) completó instalación, compilación y despliegue correctamente.
+
+Las mismas 18 pruebas pasan contra el sitio público, incluidas las rutas internas al actualizar, los favoritos persistentes, los formularios, el mini CRUD y los recursos visuales. Para repetirlas, define `RADAR_BASE_URL=https://devkalpha.github.io/RadarUtil/` antes de ejecutar `npm run test:e2e`.
+
+La fuente anterior de Pages también sigue activando su publicación automática. Falta seleccionar **GitHub Actions** en Settings → Pages → Source para utilizar exclusivamente el workflow Angular. Este ajuste se realiza una sola vez y requiere una sesión del propietario en GitHub.

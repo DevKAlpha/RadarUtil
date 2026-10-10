@@ -77,7 +77,7 @@ test('Detalle por ID y favoritos persistentes entre sesiones', async ({ page, br
   const state = await page.context().storageState();
   const reopened = await browser.newContext({ storageState: state, viewport: page.viewportSize() });
   const reopenedPage = await reopened.newPage();
-  await reopenedPage.goto('http://127.0.0.1:4173/RadarUtil/#/favoritos');
+  await reopenedPage.goto(new URL('#/favoritos', testInfo.project.use.baseURL).href);
   await expect(reopenedPage.locator('.favorite-item')).toHaveCount(1);
   await expect(reopenedPage.locator('.favorite-item h3')).toHaveText('Beca de Excelencia 2026');
   await reopenedPage.getByRole('button', { name: 'Eliminar de favoritos' }).click();

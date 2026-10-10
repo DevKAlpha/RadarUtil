@@ -1,11 +1,13 @@
 import { defineConfig } from '@playwright/test';
 
+const remoteBase = process.env['RADAR_BASE_URL'];
+
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
   reporter: 'list',
-  use: { baseURL: 'http://127.0.0.1:4173/RadarUtil/', channel: 'msedge', trace: 'retain-on-failure' },
-  webServer: { command: 'node scripts/serve-build.mjs', url: 'http://127.0.0.1:4173/RadarUtil/', reuseExistingServer: !process.env.CI },
+  use: { baseURL: remoteBase || 'http://127.0.0.1:4173/RadarUtil/', channel: 'msedge', trace: 'retain-on-failure' },
+  webServer: remoteBase ? undefined : { command: 'node scripts/serve-build.mjs', url: 'http://127.0.0.1:4173/RadarUtil/', reuseExistingServer: !process.env.CI },
   projects: [
     { name: 'escritorio', use: { viewport: { width: 1440, height: 1000 } } },
     { name: 'tablet', use: { viewport: { width: 768, height: 1024 } } },

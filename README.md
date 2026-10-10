@@ -37,6 +37,8 @@ El build local utiliza `/` como base. El build de Pages utiliza `/RadarUtil/` y 
 
 Las pruebas utilizan Microsoft Edge instalado en el equipo. Para otro entorno, cambia `channel: 'msedge'` en `playwright.config.mjs` o instala Edge mediante `npx playwright install msedge`. Ejecuta `npm run build:pages` antes de las pruebas. Cubren escritorio (1440 px), tablet (768 px) y móvil (390 px).
 
+Para verificar el sitio público, define la variable de entorno `RADAR_BASE_URL=https://devkalpha.github.io/RadarUtil/` y ejecuta `npm run test:e2e`. Las pruebas utilizan sesiones nuevas de navegador y datos de prueba guardados únicamente en esas sesiones.
+
 ## Estructura del proyecto
 
 ```text
