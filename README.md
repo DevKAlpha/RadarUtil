@@ -87,3 +87,5 @@ Consulta [docs/RESUMEN_TECNICO.md](docs/RESUMEN_TECNICO.md) para preparar la sus
 La integración funcional con BOCA 1.5.24 se encuentra en [integrations/boca](integrations/boca/README.md). Incluye el código oficial completo, una interfaz que adapta la identidad visual de Radar Útil a sus páginas PHP y un entorno reproducible con Ubuntu, Apache, PHP y PostgreSQL. El proyecto Angular y su historial se conservan.
 
 Consulta el [informe de integración](docs/INTEGRACION_BOCA.md), el [manifiesto de archivos](docs/ARCHIVOS_ENTREGA.md) y las [capturas y pruebas](docs/evidencias-boca/README.md). BOCA se ejecuta localmente en `http://localhost:8088/boca/`; GitHub Pages continúa alojando el proyecto Angular.
+
+Los [apartados 15 a 18 para el informe final](docs/APARTADOS_15_18_ENTREGA_FINAL.md) incluyen la tabla de estructura, las mejoras, los procedimientos de instalación y cuatro figuras seleccionadas.

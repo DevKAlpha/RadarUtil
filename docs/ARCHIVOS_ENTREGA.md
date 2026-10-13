@@ -1,6 +1,6 @@
 # Manifiesto de archivos de la entrega final
 
-Este inventario identifica los 704 archivos de fuente, configuración, documentación y evidencias incluidos en la entrega. Se conservan los 602 archivos de BOCA oficial sin cambios y el proyecto Radar Útil anterior. Las copias modificadas se identifican individualmente.
+Este inventario identifica los 705 archivos de fuente, configuración, documentación y evidencias incluidos en la entrega. Se conservan los 602 archivos de BOCA oficial sin cambios y el proyecto Radar Útil anterior. Las copias modificadas se identifican individualmente.
 
 Los archivos originales se verifican mediante `integrations/boca/upstream.sha256.json`. El directorio `modified/` permite revisar las adaptaciones; la imagen se construye con el script de aplicación del tema y la configuración de `docker/`. Las páginas originales no se sustituyen por versiones ficticias.
 
@@ -14,6 +14,7 @@ No se incluyen `.env`, dependencias descargadas, directorios de compilación, vo
 | [.nojekyll](../.nojekyll) | Radar Útil, entregas anteriores | Sin modificar | Configuración o recurso previo de Radar Útil conservado. |
 | [README.md](../README.md) | Radar Útil, entregas anteriores | Modificado | Documentación Angular más enlaces a la entrega BOCA. |
 | [angular.json](../angular.json) | Radar Útil, entregas anteriores | Sin modificar | Configuración o recurso previo de Radar Útil conservado. |
+| [docs/APARTADOS_15_18_ENTREGA_FINAL.md](APARTADOS_15_18_ENTREGA_FINAL.md) | Desarrollo propio de esta entrega | Nuevo | Texto académico de estructura, mejoras, instalación y cuatro figuras seleccionadas. |
 | [docs/ARCHIVOS_ENTREGA.md](ARCHIVOS_ENTREGA.md) | Desarrollo propio de esta entrega | Nuevo | Manifiesto individual de todos los archivos entregados. |
 | [docs/DOCUMENTACION_COMPLETA.md](DOCUMENTACION_COMPLETA.md) | Radar Útil, entregas anteriores | Sin modificar | Documentación previa conservada. |
 | [docs/INTEGRACION_BOCA.md](INTEGRACION_BOCA.md) | Desarrollo propio de esta entrega | Nuevo | Informe con los 17 apartados requeridos. |
