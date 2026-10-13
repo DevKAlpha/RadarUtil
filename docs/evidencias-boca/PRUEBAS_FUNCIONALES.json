@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-13T05:22:55.629Z",
+  "baseUrl": "http://localhost:8088/boca/",
+  "bocaVersion": "1.5.24",
+  "contest": 11,
+  "run": 689752901,
+  "testUsers": [
+    "system",
+    "admin",
+    "teamradar",
+    "juezradar"
+  ],
+  "automaticJudgingTested": false,
+  "checks": [
+    {
+      "name": "Login real y punto de carga JavaScript",
+      "passed": true
+    },
+    {
+      "name": "CSS, JavaScript propio, JavaScript original y recurso gráfico",
+      "passed": true
+    },
+    {
+      "name": "Configuración privada protegida y acceso administrativo sin sesión rechazado",
+      "passed": true
+    },
+    {
+      "name": "Autenticación system con el algoritmo original de BOCA",
+      "passed": true
+    },
+    {
+      "name": "Creación y edición persistente de competencia por el formulario original",
+      "passed": true
+    },
+    {
+      "name": "Activación de competencia",
+      "passed": true
+    },
+    {
+      "name": "Login admin y navegación de usuarios, problemas, competencia, envíos, resultados y aclaraciones",
+      "passed": true
+    },
+    {
+      "name": "Configuración de la sede y competencia realmente en curso",
+      "passed": true
+    },
+    {
+      "name": "Importación real y persistencia de un equipo y un juez",
+      "passed": true
+    },
+    {
+      "name": "Carga multipart y lectura del paquete oficial de problema bits.zip",
+      "passed": true
+    },
+    {
+      "name": "Login del equipo y acceso al formulario original de envío",
+      "passed": true
+    },
+    {
+      "name": "Envío real de código y consulta desde administración",
+      "passed": true
+    },
+    {
+      "name": "Login del juez y acceso al listado original de envíos",
+      "passed": true
+    },
+    {
+      "name": "Evaluación manual original y actualización de resultados",
+      "passed": true
+    },
+    {
+      "name": "Cierre de sesión y protección del área del equipo",
+      "passed": true
+    }
+  ]
+}

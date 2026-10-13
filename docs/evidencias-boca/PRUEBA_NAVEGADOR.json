@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-13T05:23:45.423Z",
+  "mobile": {
+    "documentWidth": 375,
+    "problemOptions": [
+      "--",
+      "A"
+    ],
+    "tableRegions": [
+      {
+        "contentWidth": 650,
+        "visibleWidth": 345
+      }
+    ],
+    "url": "http://localhost:8088/boca/team/run.php",
+    "width": 390
+  },
+  "console": []
+}

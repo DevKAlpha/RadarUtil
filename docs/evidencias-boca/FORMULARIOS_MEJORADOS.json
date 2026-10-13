@@ -1,0 +1,163 @@
+[
+  {
+    "action": "/boca/admin/user.php",
+    "fields": [
+      {
+        "id": "",
+        "name": "confirmation",
+        "onchange": null,
+        "onclick": null,
+        "type": "hidden"
+      },
+      {
+        "id": "",
+        "name": "importfile",
+        "onchange": null,
+        "onclick": null,
+        "type": "file"
+      },
+      {
+        "id": "",
+        "name": "Submit",
+        "onchange": null,
+        "onclick": "conf()",
+        "type": "submit"
+      },
+      {
+        "id": "",
+        "name": "Submit2",
+        "onchange": null,
+        "onclick": null,
+        "type": "reset"
+      }
+    ],
+    "method": "post",
+    "name": "form1"
+  },
+  {
+    "action": "/boca/admin/user.php",
+    "fields": [
+      {
+        "id": "",
+        "name": "confirmation",
+        "onchange": null,
+        "onclick": null,
+        "type": "hidden"
+      },
+      {
+        "id": "",
+        "name": "usersitenumber",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "usernumber",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "username",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "usericpcid",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "usertype",
+        "onchange": null,
+        "onclick": null,
+        "type": "select-one"
+      },
+      {
+        "id": "",
+        "name": "userenabled",
+        "onchange": null,
+        "onclick": null,
+        "type": "select-one"
+      },
+      {
+        "id": "",
+        "name": "usermultilogin",
+        "onchange": null,
+        "onclick": null,
+        "type": "select-one"
+      },
+      {
+        "id": "",
+        "name": "userfullname",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "userdesc",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "userip",
+        "onchange": null,
+        "onclick": null,
+        "type": "text"
+      },
+      {
+        "id": "",
+        "name": "passwordn1",
+        "onchange": null,
+        "onclick": null,
+        "type": "password"
+      },
+      {
+        "id": "",
+        "name": "passwordn2",
+        "onchange": null,
+        "onclick": null,
+        "type": "password"
+      },
+      {
+        "id": "",
+        "name": "changepass",
+        "onchange": null,
+        "onclick": null,
+        "type": "select-one"
+      },
+      {
+        "id": "",
+        "name": "passwordo",
+        "onchange": null,
+        "onclick": null,
+        "type": "password"
+      },
+      {
+        "id": "",
+        "name": "Submit",
+        "onchange": null,
+        "onclick": "conf3()",
+        "type": "submit"
+      },
+      {
+        "id": "",
+        "name": "Cancel",
+        "onchange": null,
+        "onclick": "conf5()",
+        "type": "submit"
+      }
+    ],
+    "method": "post",
+    "name": "form3"
+  }
+]

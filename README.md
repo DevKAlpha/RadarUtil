@@ -81,3 +81,9 @@ El workflow `.github/workflows/deploy.yml` instala con `npm ci`, compila Angular
 El respaldo local `respaldo-pre-angular-2026-10-10` conserva la versión anterior en Git. El historial existente se mantiene.
 
 Consulta [docs/RESUMEN_TECNICO.md](docs/RESUMEN_TECNICO.md) para preparar la sustentación.
+
+## Entrega final: integración con BOCA
+
+La integración funcional con BOCA 1.5.24 se encuentra en [integrations/boca](integrations/boca/README.md). Incluye el código oficial completo, una interfaz que adapta la identidad visual de Radar Útil a sus páginas PHP y un entorno reproducible con Ubuntu, Apache, PHP y PostgreSQL. El proyecto Angular y su historial se conservan.
+
+Consulta el [informe de integración](docs/INTEGRACION_BOCA.md), el [manifiesto de archivos](docs/ARCHIVOS_ENTREGA.md) y las [capturas y pruebas](docs/evidencias-boca/README.md). BOCA se ejecuta localmente en `http://localhost:8088/boca/`; GitHub Pages continúa alojando el proyecto Angular.

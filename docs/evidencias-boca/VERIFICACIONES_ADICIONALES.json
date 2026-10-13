@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-13T05:29:51.3601937Z",
+  "originalFilesVerified": 602,
+  "formSignaturesEqual": true,
+  "restartPersistence": {
+    "run": 689752901,
+    "status": "judged",
+    "contest": 11,
+    "answer": 1,
+    "operation": "docker compose stop web; docker compose start --wait web; consulta PostgreSQL"
+  }
+}
