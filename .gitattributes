@@ -1,0 +1,4 @@
+/integrations/boca/**/*.sh text eol=lf
+/integrations/boca/Dockerfile text eol=lf
+/integrations/boca/upstream/** -text
+/integrations/boca/modified/** -text

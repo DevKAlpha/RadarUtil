@@ -1,0 +1,10 @@
+{
+  "software": "BOCA Online Contest Administrator",
+  "version": "1.5.24",
+  "repository": "https://github.com/cassiopc/boca",
+  "commit": "5a6232c7dd4691dfc728014819c74264058891ba",
+  "license": "GPL-3.0-or-later",
+  "downloaded": "2026-10-12",
+  "upstreamDirectory": "upstream",
+  "sourceUnmodified": true
+}

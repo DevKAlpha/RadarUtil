@@ -1,0 +1,46 @@
+name: radar-boca
+services:
+  db:
+    image: postgres:16-bookworm@sha256:0ea6700a3b4f0ae6ce746519073558aed4d88a79d8d07622a9a644946c7319c4
+    environment:
+      POSTGRES_USER: bocauser
+      POSTGRES_PASSWORD: ${BOCA_DB_PASSWORD:?Ejecuta el script de preparación}
+      POSTGRES_DB: postgres
+      TZ: America/Bogota
+    volumes:
+      - database:/var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U bocauser -d postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+  web:
+    image: radar-boca-web:1.5.24
+    build:
+      context: .
+      target: personalizado
+    environment: &boca-env
+      BOCA_DB_PASSWORD: ${BOCA_DB_PASSWORD:?Ejecuta el script de preparación}
+      BOCA_KEY: ${BOCA_KEY:?Ejecuta el script de preparación}
+      BOCA_BASE_PASSWORD: ${BOCA_BASE_PASSWORD:-boca}
+    ports: ["127.0.0.1:${BOCA_PORT:-8088}:80"]
+    depends_on:
+      db: {condition: service_healthy}
+    volumes:
+      - private-web:/var/www/boca/src/private
+  original:
+    profiles: [comparacion]
+    image: radar-boca-original:1.5.24
+    build:
+      context: .
+      target: original
+    environment: *boca-env
+    ports: ["127.0.0.1:${BOCA_ORIGINAL_PORT:-8089}:80"]
+    depends_on:
+      db: {condition: service_healthy}
+    volumes:
+      - private-original:/var/www/boca/src/private
+volumes:
+  database:
+  private-web:
+  private-original:
